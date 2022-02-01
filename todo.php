@@ -21,7 +21,6 @@ class Todo
 
 class ToDoList
 {
-
   public array $todos;
 
   // Afficher les todos terminées
@@ -35,7 +34,7 @@ class ToDoList
   // Afficher les todos en cours
   public function showNotCompleted(): array
   {
-    array_filter($todos, function(Todo $todo){
+    array_filter($this->todos, function(Todo $todo){
       return $todo->unCompleted();
     });
   }
@@ -43,7 +42,9 @@ class ToDoList
   // Valider toutes les todos
   public function setAllCompleted(): self
   {
-
+    foreach($this->todos as $todo){
+      return $todo === true;
+    }
   }
 
   // Ajouter une todo
@@ -54,5 +55,3 @@ class ToDoList
 }
 
 $todos = [];
-
-
