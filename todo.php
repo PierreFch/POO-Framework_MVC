@@ -8,13 +8,13 @@ class ToDo
   public function __construct(public string $title, public ?string $descritpion)
   {
   }
-  public function setCompleted(): self
+  public function isCompleted(): self
   {
     $this->completed_at = new DateTime();
     return $this;
   }
 
-  public function isCompleted(): bool
+  public function unCompleted(): bool
   {
     return $this->completed_at !== null;
   }
@@ -22,32 +22,30 @@ class ToDo
 
 class ToDoList
 {
-  public function __construct(public Todo $todos)
+  public function __construct(public array $todos)
   {
   }
-  public function showDone(): Todo
+  // Afficher les todos terminées
+  public function showCompleted(): array
   {
-    $array = new Todo();
-    return $array;
   }
 
-  public function showToDo(): Todo
+  // Afficher les todos en cours
+  public function showNotCompleted(): array
   {
-
   }
 
-  public function setAllDone(): self
+  // Valider toutes les todos
+  public function setAllCompleted(): self
   {
-
   }
 
-  public function addTodo(Todo $todo): self
+  // Ajouter une todo
+  public function addTodo(array $todo): self
   {
 
   }
 }
 
-$maToDo = new ToDo(
-  title: "Ma todo list",
-  descritpion: "Woaw c'est magique !",
-);
+$maToDo = new ToDo(title: "Ma todo list", descritpion: "Woaw c'est magique !",);
+
