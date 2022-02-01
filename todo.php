@@ -2,41 +2,52 @@
 
 class ToDo
 {
-  public function __construct(public string $title, public ?string $descritpion, public ?DateTime $done_at)
+
+  private ?DateTime $completed_at = null;
+
+  public function __construct(public string $title, public ?string $descritpion)
   {
   }
-  public function setDone(): self
+  public function setCompleted(): self
   {
-    $this->done_at = new DateTime();
+    $this->completed_at = new DateTime();
     return $this;
   }
 
-  public function unDone(): self
+  public function isCompleted(): bool
   {
-    unset($this->done_at);
-    return $this;
+    return $this->completed_at !== null;
   }
 }
 
 class ToDoList
 {
-  public function __construct(public array $todos)
+  public function __construct(public Todo $todos)
   {
   }
-  public function showDone(): array
+  public function showDone(): Todo
   {
-
+    $array = new Todo();
+    return $array;
   }
 
-  public function showToDo(): array
+  public function showToDo(): Todo
   {
 
   }
 
   public function setAllDone(): self
   {
-    
+
+  }
+
+  public function addTodo(Todo $todo): self
+  {
+
   }
 }
 
-$todolist = new ToDoList();
+$maToDo = new ToDo(
+  title: "Ma todo list",
+  descritpion: "Woaw c'est magique !",
+);
