@@ -12,4 +12,4 @@ $result = $list
 
 var_dump($result);
 
-var_dump("Ma recherche donne :", $list->search("Titre1"));
+var_dump("Ma recherche donne :", $list->search("methodes"));
