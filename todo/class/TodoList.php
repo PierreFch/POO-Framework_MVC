@@ -18,7 +18,8 @@ class TodoList
   }
 
   // Chercher une todo
-  public function search(string $search): array{
+  public function search(string $search): array
+  {
     return $this->filter(fn(Todo $todo) => str_contains($todo->title, $search) || str_contains($todo->description, $search));
   }
 
