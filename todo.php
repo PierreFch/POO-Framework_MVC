@@ -7,13 +7,14 @@ class Todo
   public function __construct(public string $title, public ?string $descritpion)
   {
   }
-  public function isCompleted(): self
+
+  public function setCompleted(): self
   {
     $this->completed_at = new DateTime();
     return $this;
   }
 
-  public function unCompleted(): bool
+  public function isCompleted(): bool
   {
     return $this->completed_at !== null;
   }
@@ -33,32 +34,34 @@ class ToDoList
   // Afficher les todos terminées
   public function showCompleted(): array
   {
-    array_filter($this->todos, function (Todo $todo) {
-      return $todo->isCompleted();
-    });
+    // array_filter($this->todos, function (Todo $todo) {     // Paramètres : Prendre chaque élément de l'array
+    //   return $todo->isCompleted();
+    // });
+    return array_filter($this->todos, fn (Todo $todo) => $todo->isCompleted()); // TRUE
   }
 
   // Afficher les todos en cours
   public function showNotCompleted(): array
   {
-    array_filter($this->todos, function (Todo $todo) {
-      return $todo->unCompleted();
-    });
+    return array_filter($this->todos, fn (Todo $todo) => !$todo->isCompleted()); // FALSE
   }
 
   // Valider toutes les todos
-  public function setAllCompleted(): self
+  public function setAllCompleted(): self // Self correspond à ToDoList
   {
-    foreach ($this->todos as $todo) {
-      return $todo === true;
+    foreach($this->todos as $todo){
+      $todo->setCompleted();
     }
+    return $this;
   }
 }
 
-$list = new ToDoList();
-$list
+$list = new ToDoList(); // Aucuns paramètres car pas de constructeur
+$result = $list
   ->addTodo(new Todo("Ma tâche numéro 1", "01-02-2022"))
   ->addTodo(new Todo("Ma tâche numéro 2", "10-02-2022"))
-  ->addTodo(new Todo("Ma tâche numéro 3", "25-02-2022"));
+  -> setAllCompleted()
+  ->addTodo(new Todo("Ma tâche numéro 3", "25-02-2022"))
+  -> showNotCompleted();
 
-var_dump($list);
+var_dump($result);
