@@ -1,9 +1,8 @@
 <?php
-
-use todo\src\Todo\Todo;
-use todo\src\Todo\TodoList;
-
 require '../vendor/autoload.php';
+
+use Todo\Todo\Todo;
+use Todo\Todo\TodoList;
 
 $list = new TodoList(); // Aucuns paramètres car pas de constructeur
 $result = $list

@@ -3,7 +3,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Pierre\\Todo\\": "src/"
+            "Todo\\": "src/"
         }
     },
     "authors": [

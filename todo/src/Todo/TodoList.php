@@ -1,7 +1,6 @@
 <?php
 
-namespace todo\src\Todo;
-use todo\src\Todo\Todo;
+namespace Todo\Todo;
 
 class TodoList
 {

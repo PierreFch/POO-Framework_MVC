@@ -1,7 +1,7 @@
 <?php
 
-namespace todo\src\Todo;
-use todo\src\DateTime;
+namespace Todo\Todo;
+use DateTime;
 
 class Todo
 {
