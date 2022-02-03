@@ -1,7 +1,3 @@
 <?php
 
-namespace todo\src\User;
-class Profile
-{
-
-}
+namespace src\User;
