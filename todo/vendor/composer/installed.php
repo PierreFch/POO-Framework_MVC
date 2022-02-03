@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '5709185988f570e92aa9dc70ea8fb2689431f417',
+        'reference' => 'd6679b8d15f87c865b4aa1281f608c6e854fdaae',
         'name' => 'pierre/todo',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '5709185988f570e92aa9dc70ea8fb2689431f417',
+            'reference' => 'd6679b8d15f87c865b4aa1281f608c6e854fdaae',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-mbstring' => array(

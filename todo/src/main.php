@@ -12,4 +12,4 @@ $result = $list
     ->addTodo(new Todo("Mission3", "Tester le fonctionnement"))
     ->showNotCompleted();
 
-dump("Ma recherche donne :", $list->search("Mission"));
+dump("Ma recherche donne :", $list->search("Mission2"));
