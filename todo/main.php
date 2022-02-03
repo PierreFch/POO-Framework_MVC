@@ -1,6 +1,6 @@
 <?php
-require_once ('class/Todo.php');
-require_once('class/TodoList.php');
+require_once ('Todo.php');
+require_once('TodoList.php');
 
 $list = new TodoList(); // Aucuns paramètres car pas de constructeur
 $result = $list
@@ -12,4 +12,4 @@ $result = $list
 
 var_dump($result);
 
-var_dump("Ma recherche donne :", $list->search("T"));
+var_dump("Ma recherche donne :", $list->search("Titre"));
