@@ -1,6 +1,7 @@
 <?php
-require_once ("Todo.php");
 
+namespace todo\src\Todo;
+use todo\src\Todo\Todo;
 
 class TodoList
 {
