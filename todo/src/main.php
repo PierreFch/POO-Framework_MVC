@@ -1,96 +1,47 @@
 <?php
 require '../vendor/autoload.php';
 
-use Todo\Todo\Todo;
+// use Todo\Todo\Todo;
 use Todo\Todo\TodoList;
 use function Termwind\{ask};
-use function Termwind\{render};
 
-$list = new TodoList(); // Aucuns paramètres car pas de constructeur
-/*$result = $list
-    ->addTodo(new Todo("Mission1", "Init composer"))
-    ->setAllCompleted()
-    ->addTodo(new Todo("Mission2", "Installer var-dumper"))
-    ->addTodo(new Todo("Mission3", "Tester le fonctionnement"))
-    ->showNotCompleted();
+$list = new TodoList();
 
-dump("Ma recherche donne :", $list->search("Mission2"));*/
-
-
-$name = ask(<<<HTML
-    <div class="mt-1 ml-2 mr-1">
-        Your username :
-    </div>
-    HTML
-);
-
+$name = null;
 while ($name === null) {
-  $name = ask(<<<HTML
-    <div class="mt-1 ml-2 mr-1">
-        Your username :
-    </div>
-    HTML
-  );
+  $name = askName();
 }
-$answer = ask(<<<HTML
-    <div class="mt-1 ml-2 mr-1">
-        Do you want a new todo (Y/n)?
-    </div>
-    HTML
-);
-if ($answer === 'n') {
-  echo "No add a new todo";
-};
-while ($answer !== 'n') {
-  // Data todo
-  $title = ask(<<<HTML
-    <div class="mt-1 ml-2 mr-1">
-        Title :
-    </div>
-    HTML
-  );
-  $description = ask(<<<HTML
-    <div class="mt-1 ml-2 mr-1">
-        Description :
-    </div>
-    HTML
-  );
 
-  // Add todo
-  $result = $list
-      ->addTodo(new Todo($title, $description));
-
+$purchase = askIfNewTodo();
+while ($purchase !== 'n') {
+  $title = askTitle();
+  $description = askDescription();
   $result = "<ul>";
+
   foreach ($list as $todo){
-    $result = $result ."<li>". $todo->title ." : ". $todo->description ."</li>";
-    return $result . "</ul>";
+    $result = $result . "<li>" . $todo->title . " : " . $todo->description . "</li>";
+    var_dump($todo);
+    echo $result . "</ul>";
   }
 
-
-  // Purchase ?
-  $answer = ask(<<<HTML
-    <div class="mt-1 ml-2 mr-1">
-        Do you want a new todo (Y/n)?
-    </div>
-    HTML
-  );
+  $purchase = askIfNewTodo();
 }
 
-
-/*function askIfNewTodo()
+// Declaration des fonctions
+function askIfNewTodo()
 {
   $noAddMessage = "No add a new todo";
-  $answer = ask(<<<HTML
+  $purchase = ask(<<<HTML
     <div class="mt-1 ml-2 mr-1">
         Do you want a new todo (Y/n)?
     </div>
     HTML
   );
-  if ($answer === 'n') {
+  if ($purchase === 'n') {
     echo $noAddMessage;
     die();
-  };
-  return $answer;
+  }
+  return $purchase;
 }
 
 function askName(): ?string
@@ -121,4 +72,4 @@ function askDescription(): ?string
     </div>
     HTML
   );
-} */
+}
