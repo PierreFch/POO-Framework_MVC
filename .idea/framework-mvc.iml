@@ -6,6 +6,14 @@
       <excludeFolder url="file://$MODULE_DIR$/todo/vendor/symfony/var-dumper" />
       <excludeFolder url="file://$MODULE_DIR$/todo/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/todo/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/todo/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/todo/vendor/nunomaduro/termwind" />
+      <excludeFolder url="file://$MODULE_DIR$/todo/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/todo/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/todo/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/todo/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/todo/vendor/symfony/string" />
+      <excludeFolder url="file://$MODULE_DIR$/todo/vendor/symfony/console" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

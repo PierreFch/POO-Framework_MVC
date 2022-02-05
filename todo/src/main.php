@@ -3,6 +3,8 @@ require '../vendor/autoload.php';
 
 use Todo\Todo\Todo;
 use Todo\Todo\TodoList;
+use function Termwind\{ask};
+use function Termwind\{render};
 
 $list = new TodoList(); // Aucuns paramètres car pas de constructeur
 /*$result = $list
@@ -14,9 +16,6 @@ $list = new TodoList(); // Aucuns paramètres car pas de constructeur
 
 dump("Ma recherche donne :", $list->search("Mission2"));*/
 
-
-use function Termwind\{ask};
-use function Termwind\{render};
 
 $name = ask(<<<HTML
     <div class="mt-1 ml-2 mr-1">
@@ -60,16 +59,12 @@ while ($answer !== 'n') {
   // Add todo
   $result = $list
       ->addTodo(new Todo($title, $description));
-  $result = render(<<<HTML
-    <div class="mt-1 ml-2 mr-1">
-        <ul>
-            <li>$title : $description</li>    
-        </ul>
-        
-    </div>
-    HTML
-  );
 
+  $result = "<ul>";
+  foreach ($list as $todo){
+    $result = $result ."<li>". $todo->title ." : ". $todo->description ."</li>";
+    return $result . "</ul>";
+  }
 
 
   // Purchase ?
@@ -82,7 +77,7 @@ while ($answer !== 'n') {
 }
 
 
-function askIfNewTodo()
+/*function askIfNewTodo()
 {
   $noAddMessage = "No add a new todo";
   $answer = ask(<<<HTML
@@ -97,6 +92,7 @@ function askIfNewTodo()
   };
   return $answer;
 }
+
 function askName(): ?string
 {
   return ask(<<<HTML
@@ -106,6 +102,7 @@ function askName(): ?string
     HTML
   );
 }
+
 function askTitle(): ?string
 {
   return ask(<<<HTML
@@ -115,6 +112,7 @@ function askTitle(): ?string
     HTML
   );
 }
+
 function askDescription(): ?string
 {
   return ask(<<<HTML
@@ -123,4 +121,4 @@ function askDescription(): ?string
     </div>
     HTML
   );
-}
+} */
