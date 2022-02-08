@@ -74,7 +74,7 @@ while ($purchase !== 'n') {
 
   $list->addTodo(new Todo($title, $description));
   $result = "<ul>";
-  foreach ($list as $todo){
+  foreach ($list->todos as $todo){
     $result = $result . "<li>" . $todo->title . " : " . $todo->description . "</li>";
   }
   $result = $result . "</ul>";
