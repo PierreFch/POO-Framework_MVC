@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    dump(\App\Models\User::all());
+
     return view('welcome');
 });
+
+Route::get('/users', [UsersController::class, 'index']);
+Route::get('/user/{user}', [UsersController::class, 'show']);
