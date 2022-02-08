@@ -1,31 +1,9 @@
 <?php
 require '../vendor/autoload.php';
 
-// use Todo\Todo\Todo;
+use Todo\Todo\Todo;
 use Todo\Todo\TodoList;
-use function Termwind\{ask};
-
-$list = new TodoList();
-
-$name = null;
-while ($name === null) {
-  $name = askName();
-}
-
-$purchase = askIfNewTodo();
-while ($purchase !== 'n') {
-  $title = askTitle();
-  $description = askDescription();
-  $result = "<ul>";
-
-  foreach ($list as $todo){
-    $result = $result . "<li>" . $todo->title . " : " . $todo->description . "</li>";
-    var_dump($todo);
-    echo $result . "</ul>";
-  }
-
-  $purchase = askIfNewTodo();
-}
+use function Termwind\{ask, render};
 
 // Declaration des fonctions
 function askIfNewTodo()
@@ -44,32 +22,63 @@ function askIfNewTodo()
   return $purchase;
 }
 
-function askName(): ?string
+function askName(): string
 {
-  return ask(<<<HTML
+  $name = ask(<<<HTML
     <div class="mt-1 ml-2 mr-1">
         Your username :
     </div>
     HTML
   );
+  if(!$name){
+    return askName();
+  }
+  return $name;
 }
 
-function askTitle(): ?string
+function askTitle(): string
 {
-  return ask(<<<HTML
+  $title = ask(<<<HTML
     <div class="mt-1 ml-2 mr-1">
         Title :
     </div>
     HTML
   );
+  if(!$title){
+    return askTitle();
+  }
+  return $title;
 }
 
-function askDescription(): ?string
+function askDescription(): string
 {
-  return ask(<<<HTML
+  $description = ask(<<<HTML
     <div class="mt-1 ml-2 mr-1">
         Description :
     </div>
     HTML
   );
+  if(!$description){
+    return askDescription();
+  }
+  return $description;
+}
+
+$name = askName();
+$purchase = askIfNewTodo();
+$list = new TodoList();
+
+while ($purchase !== 'n') {
+  $title = askTitle();
+  $description = askDescription();
+
+  $list->addTodo(new Todo($title, $description));
+  $result = "<ul>";
+  foreach ($list as $todo){
+    $result = $result . "<li>" . $todo->title . " : " . $todo->description . "</li>";
+  }
+  $result = $result . "</ul>";
+  render($result);
+
+  $purchase = askIfNewTodo();
 }
