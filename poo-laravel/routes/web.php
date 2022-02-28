@@ -23,8 +23,8 @@ Route::get('/', function () {
 
 Route::get('/users', [UsersController::class, 'index']);
 Route::get('/user/{user}', [UsersController::class, 'show']);
-Route::get('/users/addUser', [UsersController::class, 'create']);
-Route::post('/users/addUser', function () {
+Route::get('/users/add', [UsersController::class, 'create']);
+Route::post('/users/add', function () {
     return 'Formulaire reçu !';
 });
 

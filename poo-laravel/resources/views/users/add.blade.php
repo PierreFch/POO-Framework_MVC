@@ -4,7 +4,7 @@
 
 <h1>Ajouter un utilisateur</h1>
 
-<form action="/inscription" method="POST" class="my-3">
+<form action="/add" method="POST" class="my-3">
     @csrf
     <div class="form-row">
         <div class="text my-3 col">
