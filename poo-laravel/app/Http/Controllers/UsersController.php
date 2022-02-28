@@ -14,7 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('users/index', ['users' => User::all()]);
+        return view('users.index', ['users' => User::all()]);
     }
 
     /**
@@ -24,7 +24,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('addUser');
+        return view('users.addUser');
     }
 
     /**
