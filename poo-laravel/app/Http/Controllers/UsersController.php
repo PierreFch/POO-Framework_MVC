@@ -14,7 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('users', ['users' => User::all()]);
+        return view('users/index', ['users' => User::all()]);
     }
 
     /**
@@ -35,7 +35,16 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'picture' => 'required',
+        ]);
+
+        User::create($request->all());
+
+        return redirect()->route('index')
+            -> with('Success :', 'utilisateur ajouté');
     }
 
     /**

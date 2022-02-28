@@ -1,7 +1,19 @@
-<ul>
-    @foreach($users as $user)
-    <li><img src="{{ $user->avatar_url }}" alt="" width="100px" /> {{ $user->name }} ({{ $user->email }})</li>
-    @endforeach
-</ul>
+@extends('layout')
 
-<a href="{{ route }}"></a>
+@section('content')
+
+<div class="container my-4">
+    <h1>Utilisateurs</h1>
+
+    <ul>
+        @foreach($users as $user)
+            <li>
+                <div class="top"><img src="{{ $user->avatar_url }}" alt=""/></div>
+                <div class="bottom">{{ $user->name }} ({{ $user->email }})</div>
+            </li>
+        @endforeach
+    </ul>
+</div>
+
+@endsection
+

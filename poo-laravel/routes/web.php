@@ -23,3 +23,10 @@ Route::get('/', function () {
 
 Route::get('/users', [UsersController::class, 'index']);
 Route::get('/user/{user}', [UsersController::class, 'show']);
+Route::get('/users/inscription', function () {
+    return view('inscription');
+});
+Route::post('/users/inscription', function () {
+    return 'Formulaire reçu !';
+});
+
