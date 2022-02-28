@@ -24,7 +24,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('inscription');
     }
 
     /**
@@ -33,18 +33,9 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'picture' => 'required',
-        ]);
-
-        User::create($request->all());
-
-        return redirect()->route('index')
-            -> with('Success :', 'utilisateur ajouté');
+        //
     }
 
     /**
@@ -57,7 +48,7 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($user);
 
-        return view('users.index', ['users' => $user]);
+        return view('users.show', ['users' => $user]);
     }
 
     /**
