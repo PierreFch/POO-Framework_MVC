@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link mr-5" href="<?= url('users'); ?>">Liste des utilisateurs</a>
-                <a class="nav-item nav-link" href="<?= url('users/inscription'); ?>">Ajouter un utilisateur</a>
+                <a class="nav-item nav-link" href="<?= url('users/addUser'); ?>">Ajouter un utilisateur</a>
             </div>
         </div>
     </nav>
