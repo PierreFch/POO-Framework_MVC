@@ -21,10 +21,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/users', [UsersController::class, 'index']);
-Route::get('/user/{user}', [UsersController::class, 'show']);
-Route::get('/users/add', [UsersController::class, 'create']);
-Route::post('/users/add', function () {
-    return 'Formulaire reçu !';
-});
+Route::get('/users', [UsersController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UsersController::class, 'create'])->name('users.create');
+Route::get('/users/{user}', [UsersController::class, 'show'])->name('users.show');
+Route::post('/users', [UsersController::class, 'store'])->name('users.store');
 

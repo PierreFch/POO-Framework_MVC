@@ -23,14 +23,14 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link mr-5" href="<?= url('users'); ?>">Liste des utilisateurs</a>
-                <a class="nav-item nav-link" href="<?= url('users/add'); ?>">Ajouter un utilisateur</a>
+                <a class="nav-item nav-link" href="<?= url('users/create'); ?>">Ajouter un utilisateur</a>
             </div>
         </div>
     </nav>
 </header>
-
-@yield('content')
-
+<div class="container">
+    @yield('content')
+</div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

@@ -37,7 +37,7 @@ class UsersController extends Controller
 //        $user->save();
 //        return back()->with('message','Utilisateur créé');
 
-        return view('users.add');
+        return view('users.create');
     }
 
     /**
@@ -46,9 +46,13 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+        $input = $request->only(['name', 'email', 'avatar_url', 'password']);
+
+        $user = User::create($input);
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -59,9 +63,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        $users = User::findOrFail($user);
-        $users->show();
-        return view('users.show', ['users' => $user]);
+        return view('users.show', ['user' => $user]);
     }
 
     /**
