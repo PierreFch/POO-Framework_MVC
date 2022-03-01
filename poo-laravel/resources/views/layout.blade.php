@@ -84,6 +84,12 @@
         padding: 0 20px;
     }
 
+    div.left, div.right{
+        width: calc(50% - 40px);
+        display: inline-block;
+        vertical-align: top;
+    }
+
 </style>
 </body>
 </html>
