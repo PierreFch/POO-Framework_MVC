@@ -53,8 +53,8 @@ class UsersController extends Controller
 
     public function destroy(User $user)
     {
-        $users = User::findOrFail($user);
-        $users->delete();
-        return view('users.delete', ['users' => $user]);
+        $user->delete();
+
+        return redirect()->route('users.index');
     }
 }
