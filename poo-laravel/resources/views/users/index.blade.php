@@ -13,7 +13,6 @@
                     {{ $user->name }}
                     {{ $user->email }} <br>
                     <a href="{{route('users.show', $user)}}" class="btn btn-primary mt-3 my-1">Voir plus</a>
-                    <a href="{{route('users.edit', $user)}}" class="btn btn-warning my-1">Modifier l'utilisateur</a>
                 </div>
             </li>
         @endforeach
