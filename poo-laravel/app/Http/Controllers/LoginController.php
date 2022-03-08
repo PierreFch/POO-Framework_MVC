@@ -14,18 +14,16 @@ class LoginController extends Controller
 
     public function authentication(Request $request)
     {
-        $request->validate([
+        $credentials = $request->validate([
             'email' => 'required',
             'password' => 'required',
         ]);
 
-        $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('users')
-                ->withSuccess('Signed in');
+            return redirect()->intended(route('users.index'));
         }
 
-        return redirect("login");
+        return redirect(route('auth.login'));
     }
 
     public function register()
@@ -35,31 +33,22 @@ class LoginController extends Controller
 
     public function registration(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
 
-        $data = $request->all();
-        $check = $this->create($data);
+        $user = User::create($data);
 
-        return redirect("login");
-    }
+        Auth::login($user);
 
-    public function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password'])
-        ]);
+        return redirect(route('users.index'));
     }
 
     public function signOut() {
-
         Auth::logout();
-
-        return Redirect('login');
+        return redirect(route('auth.login'));
     }
+
 }

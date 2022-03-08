@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,10 @@ Route::post('/authentication', [LoginController::class, 'authentication'])->name
 Route::get('/register', [LoginController::class, 'register'])->name('auth.register');
 Route::post('/registration', [LoginController::class, 'registration'])->name('auth.registration');
 Route::get('/signout', [LoginController::class, 'signOut'])->name('auth.signout');
+
+Route::get('/password', [PasswordController::class, 'passwordForgotten'])->name('password.passwordForgotten');
+Route::post('/password',[PasswordController::class, 'passwordSendEmail'])->name('password.passwordSendEmail');
+Route::get('/reset-password/{token}', [PasswordController::class, 'passwordReset'])->name('password.passwordReset');
 
 //Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 //Route::post('/users', [UsersController::class, 'store'])->name('users.store');

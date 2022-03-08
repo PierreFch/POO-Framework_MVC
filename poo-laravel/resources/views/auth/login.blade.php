@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
-                    <h3 class="card-header text-center">Login</h3>
+                    <h1 class="card-header text-center">Login</h1>
                     <div class="card-body">
                         <form action="{{ route('auth.authentication') }}" method="POST">
                             @csrf
@@ -24,6 +24,9 @@
                             </div>
                             <div class="d-grid mx-auto">
                                 <button type="submit" class="btn btn-dark btn-block">Sign in</button>
+                            </div>
+                            <div class="bottom my-3 text-center">
+                                <a href="{{ route('password.passwordForgotten') }}" title="Mot de passe oublié" class="passwordForgotten">Mot de passe oublié</a>
                             </div>
                         </form>
                     </div>

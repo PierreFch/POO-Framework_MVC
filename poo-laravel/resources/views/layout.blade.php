@@ -21,20 +21,20 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
-            <div class="logo">
-                <a href="<?= url(''); ?>">
-                    <img src="https://laravel.com/img/logotype.min.svg" title="Laravel" />
-                </a>
+            <div class="message">
+                @auth
+                    Bonjour {{ Auth::user()->name }} !
+                @endauth
             </div>
             <div class="navbar-nav">
-                @guest
+                @auth
                     <a class="nav-item nav-link mr-5" href="{{ route('auth.login') }}">Login</a>
                     <a class="nav-item nav-link mr-5" href="{{ route('auth.register') }}">Register</a>
                 @else
-                    <a class="nav-item nav-link mr-5" href="<?= url('users'); ?>">Liste des utilisateurs</a>
-                    <a class="nav-item nav-link mr-5" href="<?= url('users/create'); ?>">Ajouter un utilisateur</a>
+                    <a class="nav-item nav-link mr-5" href="{{ route('users.index') }}">Liste des utilisateurs</a>
+                    <a class="nav-item nav-link mr-5" href="{{ route('users.create') }}">Ajouter un utilisateur</a>
                     <a class="nav-item nav-link" href="{{ route('auth.signout') }}">Logout</a>
-                @endguest
+                @endauth
             </div>
         </div>
     </nav>
@@ -100,6 +100,14 @@
         display: inline-block;
         vertical-align: top;
     }
+
+    img{max-width: 100%;}
+
+    a.passwordForgotten{font-size: 0.9rem}
+
+    .card h1{font-size: 2rem}
+
+    .card p{font-size: 0.9rem}
 
 </style>
 </body>
