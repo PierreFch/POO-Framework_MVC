@@ -14,16 +14,27 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body">
+<body>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+            <div class="logo">
+                <a href="<?= url(''); ?>">
+                    <img src="https://laravel.com/img/logotype.min.svg" title="Laravel" />
+                </a>
+            </div>
             <div class="navbar-nav">
-                <a class="nav-item nav-link mr-5" href="<?= url('users'); ?>">Liste des utilisateurs</a>
-                <a class="nav-item nav-link" href="<?= url('users/create'); ?>">Ajouter un utilisateur</a>
+                @guest
+                    <a class="nav-item nav-link mr-5" href="{{ route('auth.login') }}">Login</a>
+                    <a class="nav-item nav-link mr-5" href="{{ route('auth.register') }}">Register</a>
+                @else
+                    <a class="nav-item nav-link mr-5" href="<?= url('users'); ?>">Liste des utilisateurs</a>
+                    <a class="nav-item nav-link mr-5" href="<?= url('users/create'); ?>">Ajouter un utilisateur</a>
+                    <a class="nav-item nav-link" href="{{ route('auth.signout') }}">Logout</a>
+                @endguest
             </div>
         </div>
     </nav>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,12 +17,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    dump(\App\Models\User::all());
-
     return view('welcome');
 });
 
-Route::resource('users', UsersController::class);
+Route::resource('users', UsersController::class)->middleware('auth');
+
+Route::get('/login', [LoginController::class, 'login'])->name('auth.login');
+Route::post('/authentication', [LoginController::class, 'authentication'])->name('auth.authentication');
+Route::get('/register', [LoginController::class, 'register'])->name('auth.register');
+Route::post('/registration', [LoginController::class, 'registration'])->name('auth.registration');
+Route::get('/signout', [LoginController::class, 'signOut'])->name('auth.signout');
 
 //Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 //Route::post('/users', [UsersController::class, 'store'])->name('users.store');

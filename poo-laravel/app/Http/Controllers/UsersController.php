@@ -25,7 +25,6 @@ class UsersController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-
         $input = $request->only(['name', 'email', 'avatar_url', 'password']);
         $input['password'] = bcrypt($input['password']); // Crypter le mot de passe
         $user = User::create($input);
@@ -50,7 +49,6 @@ class UsersController extends Controller
     {
 
         $input = $request->only(['name', 'email', 'avatar_url', 'password']);
-        $input['password'] = bcrypt($input['password']); // Crypter le mot de passe
         $user->update($input);
 
         return redirect()->route('users.show', $user);
