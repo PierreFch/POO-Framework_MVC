@@ -26,7 +26,7 @@
                                 <button type="submit" class="btn btn-dark btn-block">Sign in</button>
                             </div>
                             <div class="bottom my-3 text-center">
-                                <a href="{{ route('password.passwordForgotten') }}" title="Mot de passe oublié" class="passwordForgotten">Mot de passe oublié</a>
+                                <a href="{{ route('password.forgot') }}" title="Mot de passe oublié" class="passwordForgotten">Mot de passe oublié</a>
                             </div>
                         </form>
                     </div>

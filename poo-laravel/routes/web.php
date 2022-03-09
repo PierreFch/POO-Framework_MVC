@@ -29,9 +29,9 @@ Route::get('/register', [LoginController::class, 'register'])->name('auth.regist
 Route::post('/registration', [LoginController::class, 'registration'])->name('auth.registration');
 Route::get('/signout', [LoginController::class, 'signOut'])->name('auth.signout');
 
-Route::get('/password', [PasswordController::class, 'passwordForgotten'])->name('password.passwordForgotten');
-Route::post('/password',[PasswordController::class, 'passwordSendEmail'])->name('password.passwordSendEmail');
-Route::get('/reset-password/{token}', [PasswordController::class, 'passwordReset'])->name('password.passwordReset');
+Route::get('/password', [PasswordController::class, 'forgot'])->name('password.forgot');
+Route::post('/password',[PasswordController::class, 'sendEmail'])->name('password.sendEmail');
+Route::get('/password-reset/{token}', [PasswordController::class, 'reset'])->name('password.reset');
 
 //Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 //Route::post('/users', [UsersController::class, 'store'])->name('users.store');

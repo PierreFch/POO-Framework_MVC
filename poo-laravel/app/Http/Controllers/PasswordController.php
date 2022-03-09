@@ -7,11 +7,11 @@ use Illuminate\Support\Facades\Password;
 
 class PasswordController extends Controller
 {
-    public function passwordForgotten(){
-        return view('auth.password.passwordForgotten');
+    public function forgot(){
+        return view('auth.password.forgot');
     }
 
-    public function passwordSendEmail(Request $request)
+    public function sendEmail(Request $request)
     {
         $request->validate(['email' => 'required|email']);
 
@@ -24,8 +24,9 @@ class PasswordController extends Controller
             : back()->withErrors(['email' => __($status)]);
     }
 
-    public function passwordReset(string $token)
+    public function reset(string $token)
     {
-        return view('auth.reset-password', ['token' => $token]);
+        return view('auth.password.reset', ['token' => $token]);
     }
+
 }

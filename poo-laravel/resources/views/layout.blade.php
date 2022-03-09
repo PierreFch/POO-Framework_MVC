@@ -27,14 +27,14 @@
                 @endauth
             </div>
             <div class="navbar-nav">
-                @auth
+                @guest
                     <a class="nav-item nav-link mr-5" href="{{ route('auth.login') }}">Login</a>
                     <a class="nav-item nav-link mr-5" href="{{ route('auth.register') }}">Register</a>
                 @else
                     <a class="nav-item nav-link mr-5" href="{{ route('users.index') }}">Liste des utilisateurs</a>
                     <a class="nav-item nav-link mr-5" href="{{ route('users.create') }}">Ajouter un utilisateur</a>
                     <a class="nav-item nav-link" href="{{ route('auth.signout') }}">Logout</a>
-                @endauth
+                @endguest
             </div>
         </div>
     </nav>
