@@ -35,7 +35,7 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <input type="text" value="{{ old('avatar_url') }}" placeholder="Photo de profil" id="avatar_url" name="avatar_url" class="form-control @error ('avatar_url-confirmation')is-invalid @enderror">
+                                <input type="text" value="{{ old('avatar_url') }}" placeholder="Photo de profil" id="avatar_url" name="avatar_url" class="form-control @error ('avatar_url')is-invalid @enderror">
                                 @error ('avatar_url')
                                 <div class="invalid-feedback"> {{ $message }}</div>
                                 @enderror

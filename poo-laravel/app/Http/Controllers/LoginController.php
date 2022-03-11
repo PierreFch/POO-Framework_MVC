@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\Password;
 
 class LoginController extends Controller
 {
@@ -36,7 +37,10 @@ class LoginController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'password' => ['required', 'confirmed', Password::min(4)
+                ->letters()
+                ->uncompromised()
+            ],
             'avatar_url' => 'required',
         ]);
 

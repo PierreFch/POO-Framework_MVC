@@ -57,6 +57,16 @@
                     @enderror
                 </div>
             </div>
+            <div class="form-row">
+                @if(Auth::user()->is_admin)
+                    <div class="text my-3 col">
+                       <select id="role" name="role" class="form-select">
+                            <option value="0">Non admin</option>
+                            <option value="1">Admin</option>
+                       </select>
+                    </div>
+                @endif
+            </div>
             <input class="btn btn-primary" type="submit" id="submit" value="Modifier l'utilisateur">
         </form>
     </div>

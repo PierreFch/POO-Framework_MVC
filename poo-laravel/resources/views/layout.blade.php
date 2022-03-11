@@ -28,12 +28,12 @@
             </div>
             <div class="navbar-nav">
                 @guest
-                    <a class="nav-item nav-link mr-5" href="{{ route('auth.login') }}">Login</a>
-                    <a class="nav-item nav-link mr-5" href="{{ route('auth.register') }}">Register</a>
+                    <a class="nav-item nav-link mr-5" href="{{ route('auth.login') }}">Connexion</a>
+                    <a class="nav-item nav-link mr-5" href="{{ route('auth.register') }}">Inscription</a>
                 @else
                     <a class="nav-item nav-link mr-5" href="{{ route('users.index') }}">Liste des utilisateurs</a>
                     <a class="nav-item nav-link mr-5" href="{{ route('users.create') }}">Ajouter un utilisateur</a>
-                    <a class="nav-item nav-link" href="{{ route('auth.signout') }}">Logout</a>
+                    <a class="nav-item nav-link" href="{{ route('auth.signout') }}">Déconnexion</a>
                 @endguest
             </div>
         </div>
@@ -99,6 +99,10 @@
         width: calc(50% - 40px);
         display: inline-block;
         vertical-align: top;
+    }
+
+    div.left img{
+        max-width: 80%;
     }
 
     img{max-width: 100%;}

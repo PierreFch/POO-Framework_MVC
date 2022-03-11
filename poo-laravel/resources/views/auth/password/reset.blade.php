@@ -7,8 +7,8 @@
             <div class="col-md-4">
                 <div class="card">
                     <h1 class="card-header text-center">Changement mot de passe</h1>
-                    <p>Entrez votre nouveau mot de passe.</p>
                     <div class="card-body">
+                        <p class="mb-3">Entrez votre nouveau mot de passe.</p>
                         <form action="{{ route('password.update', $token) }}" method="POST">
                             @csrf
 
@@ -17,15 +17,15 @@
 
                             <div class="form-group mb-3">
                                 <input type="password" placeholder="Nouveau mot de passe" id="password" name="password"
-                                       class="form-control @error('password')is-invalid @enderror">
+                                       class="form-control @error('password_con')is-invalid @enderror">
                                 @error ('password')
                                 <div class="invalid-feedback"> {{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <input type="password" placeholder="Confirmation mot de passe" id="confirm-password" name="confirm-password"
-                                       class="form-control @error('confirm-password')is-invalid @enderror">
-                                @error ('confirm-password')
+                                <input type="password" placeholder="Confirmation mot de passe" id=password_confirmation" name="password_confirmation"
+                                       class="form-control @error('password_confirmation')is-invalid @enderror">
+                                @error ('password_confirmation')
                                 <div class="invalid-feedback"> {{ $message }}</div>
                                 @enderror
                             </div>
