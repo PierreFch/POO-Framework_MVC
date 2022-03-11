@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <p>Merci de renseigner votre adresse mail. <br>
                             Un lien pour changer votre mot de passe vous sera envoyé.</p>
-                        <form action="" method="POST">
+                        <form action="{{ route('password.sendEmail') }}" method="POST">
                             @csrf
                             <div class="form-group mb-3">
                                 <input type="text" placeholder="Email" id="email" name="email"

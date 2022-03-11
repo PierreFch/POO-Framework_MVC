@@ -7,13 +7,19 @@ use Illuminate\Support\Facades\Password;
 
 class PasswordController extends Controller
 {
-    public function forgot(){
+    public function forgot()
+    {
         return view('auth.password.forgot');
     }
 
     public function sendEmail(Request $request)
     {
-        $request->validate(['email' => 'required|email']);
+        $request->validate([
+            'email' => [
+                'required',
+                'email',
+            ]
+        ]);
 
         $status = Password::sendResetLink(
             $request->only('email')
@@ -29,4 +35,27 @@ class PasswordController extends Controller
         return view('auth.password.reset', ['token' => $token]);
     }
 
+    public function update(Request $request, User $user)
+    {
+        $data = $request->validate([
+            'password' => [
+                'required',
+                'confirmed',
+                Password::min(4)
+                    ->letters()
+                    ->uncompromised()
+            ]
+        ]);
+
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+
+            function (User $user, string $password) {
+                $user->update([
+                    'password' => $password
+                ]);
+                Auth::login($user);
+            }
+        );
+    }
 }
