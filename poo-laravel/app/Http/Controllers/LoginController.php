@@ -37,6 +37,7 @@ class LoginController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:6',
+            'avatar_url' => 'required',
         ]);
 
         $user = User::create($data);
