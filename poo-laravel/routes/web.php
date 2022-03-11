@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('users', UsersController::class)->middleware('auth');
+Route::resource('users', UsersController::class)->middleware('auth'); // 'auth' car allias proposé par laravel (helpers.php)
 //Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 //Route::post('/users', [UsersController::class, 'store'])->name('users.store');
 //Route::get('/users/create', [UsersController::class, 'create'])->name('users.create');
