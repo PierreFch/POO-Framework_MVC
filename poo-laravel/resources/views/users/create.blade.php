@@ -31,6 +31,12 @@
                 @enderror
             </div>
             <div class="text my-3 col">
+                <input type="password" placeholder="Confirm password" id="password_confirmation" name="password_confirmation" class="form-control @error ('password-confirmation')is-invalid @enderror">
+                @error ('password_confirmation')
+                <div class="invalid-feedback"> {{ $message }}</div>
+                @enderror
+            </div>
+            <div class="text my-3 col">
                 <label for="avatar_url">Photo de profil :</label>
                 <input type="text" id="avatar_url" name="avatar_url" value="https://fakeimg.pl//200x200/282828/eae0d0/?retina=1" class="form-control @error('avatar_url') is-invalid @enderror">
                 @error('avatar_url')

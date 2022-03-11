@@ -29,7 +29,7 @@ class UpdateUserRequest extends FormRequest
             'name' => ['required', 'max:255'],
             'email' => ['required', 'email', 'max:255',  Rule::unique('users')->ignore($this->route('user'))],
             'avatar_url' => ['required',],
-            'password' => ['required', Password::min(4)
+            'password' => ['required', 'confirmed', Password::min(4)
                 ->letters()
                 ->uncompromised()
             ]

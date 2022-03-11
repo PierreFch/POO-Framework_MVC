@@ -19,6 +19,11 @@
                                     <div class="invalid-feedback"> {{ $message }}</div>
                                 @enderror
                             </div>
+                            @if (session('status'))
+                                <div class="alert alert-success">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
                             <div class="d-grid mx-auto">
                                 <button type="submit" class="btn btn-dark btn-block">Envoyer</button>
                             </div>

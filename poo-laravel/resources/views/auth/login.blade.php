@@ -11,7 +11,7 @@
                         <form action="{{ route('auth.authentication') }}" method="POST">
                             @csrf
                             <div class="form-group mb-3">
-                                <input type="text" placeholder="Email" id="email" name="email" class="form-control @error('email')is-invalid @enderror">
+                                <input type="text" value="{{ old('email') }}" placeholder="Email" id="email" name="email" class="form-control @error('email')is-invalid @enderror">
                                 @error ('email')
                                     <div class="invalid-feedback"> {{ $message }}</div>
                                 @enderror

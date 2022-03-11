@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\Password as PasswordRules; // "as" car les modèles ont le même nom mais sont différents
 use Illuminate\Support\Facades\Password;
+
 
 class PasswordController extends Controller
 {
@@ -30,9 +34,12 @@ class PasswordController extends Controller
             : back()->withErrors(['email' => __($status)]);
     }
 
-    public function reset(string $token)
+    public function reset(Request $request, string $token)
     {
-        return view('auth.password.reset', ['token' => $token]);
+        return view('auth.password.reset', [
+            'token' => $token,
+            'email' => $request->input('email')
+        ]);
     }
 
     public function update(Request $request, User $user)
@@ -41,7 +48,7 @@ class PasswordController extends Controller
             'password' => [
                 'required',
                 'confirmed',
-                Password::min(4)
+                PasswordRules::min(4)
                     ->letters()
                     ->uncompromised()
             ]
@@ -54,7 +61,9 @@ class PasswordController extends Controller
                 $user->update([
                     'password' => $password
                 ]);
+
                 Auth::login($user);
+
             }
         );
     }
