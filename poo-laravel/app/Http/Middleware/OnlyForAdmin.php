@@ -18,8 +18,8 @@ class OnlyForAdmin
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user() &&  Auth::user()->is_admin) {
-            return $next($request);
+            return redirect(route('dashboard'));
         }
-        return redirect('/');
+        return $next($request);
     }
 }

@@ -56,4 +56,8 @@ class LoginController extends Controller
         return redirect(route('auth.login'));
     }
 
+    public function dashboard()
+    {
+        return view('dashboard', ['users' => User::all()]);
+    }
 }

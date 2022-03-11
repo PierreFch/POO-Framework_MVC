@@ -15,7 +15,7 @@
             @if(Auth::user()->is_admin)
                 <div class="bottom d-flex align-items-center justify-content-between">
                     <a href="{{route('users.edit', $user)}}" class="btn btn-warning my-1">Modifier l'utilisateur</a>
-                    <div class="form">
+                    <div class="delete">
                         <form action="{{route('users.destroy', $user)}}" method="POST">
                             @csrf
                             @method('DELETE')

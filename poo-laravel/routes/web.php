@@ -41,3 +41,5 @@ Route::get('/password', [PasswordController::class, 'forgot'])->name('password.f
 Route::post('/password',[PasswordController::class, 'sendEmail'])->name('password.sendEmail');
 Route::get('/password-reset/{token}', [PasswordController::class, 'reset'])->name('password.reset');
 Route::post('/password-reset/{token}', [PasswordController::class, 'update'])->name('password.update');
+
+Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');

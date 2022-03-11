@@ -5,13 +5,13 @@
 <div class="my-4">
     <h1>Liste des utilisateurs</h1>
 
-    <ul>
+    <ul class="row">
         @foreach($users as $user)
-            <li>
+            <li class="col-3">
                 <div class="top"><img src="{{ $user->avatar_url }}" alt=""/></div>
                 <div class="bottom">
-                    {{ $user->name }}
-                    {{ $user->email }} <br>
+                    <div class="name">{{ $user->name }}</div>
+                    <div class="email">{{ $user->email }}</div>
                     <a href="{{route('users.show', $user)}}" class="btn btn-primary mt-3 my-1">Voir plus</a>
                 </div>
             </li>

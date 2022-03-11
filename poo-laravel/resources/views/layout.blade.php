@@ -31,8 +31,11 @@
                     <a class="nav-item nav-link mr-5" href="{{ route('auth.login') }}">Connexion</a>
                     <a class="nav-item nav-link mr-5" href="{{ route('auth.register') }}">Inscription</a>
                 @else
+                    @if(Auth::user()->is_admin)
+                        <a class="nav-item nav-link mr-5" href="{{ route('dashboard') }}">Tableau de bord</a>
+                        <a class="nav-item nav-link mr-5" href="{{ route('users.create') }}">Ajouter un utilisateur</a>
+                    @endif
                     <a class="nav-item nav-link mr-5" href="{{ route('users.index') }}">Liste des utilisateurs</a>
-                    <a class="nav-item nav-link mr-5" href="{{ route('users.create') }}">Ajouter un utilisateur</a>
                     <a class="nav-item nav-link" href="{{ route('auth.signout') }}">Déconnexion</a>
                 @endguest
             </div>
@@ -69,7 +72,6 @@
         list-style: none;
         display: flex;
         flex-direction: column;
-        width: calc(25% - 40px);
         margin: 20px;
         background: #FFF;
         box-shadow: 0 8px 10px 0 #D6D6D6;
