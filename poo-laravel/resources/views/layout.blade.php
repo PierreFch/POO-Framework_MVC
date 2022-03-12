@@ -33,7 +33,6 @@
                 @else
                     @if(Auth::user()->is_admin)
                         <a class="nav-item nav-link mr-5" href="{{ route('dashboard') }}">Tableau de bord</a>
-                        <a class="nav-item nav-link mr-5" href="{{ route('users.create') }}">Ajouter un utilisateur</a>
                     @endif
                     <a class="nav-item nav-link mr-5" href="{{ route('users.index') }}">Liste des utilisateurs</a>
                     <a class="nav-item nav-link" href="{{ route('auth.signout') }}">Déconnexion</a>
@@ -61,20 +60,17 @@
         font-size: 2.8em;
     }
 
-    ul {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        padding-left: 0;
-    }
-
     ul li {
         list-style: none;
-        display: flex;
-        flex-direction: column;
         margin: 20px;
         background: #FFF;
         box-shadow: 0 8px 10px 0 #D6D6D6;
+        padding-top: 15px;
+    }
+
+    div.dashboard ul li{
+        margin: 0;
+        box-shadow: none;
     }
 
     ul li img {
@@ -82,7 +78,7 @@
     }
 
     ul li div.bottom {
-        padding: 20px;
+        padding: 20px 0;
     }
 
     body {
@@ -114,6 +110,47 @@
     .card h1{font-size: 2rem}
 
     .card p{font-size: 0.9rem}
+
+    div.dashboard ul{
+        border-radius: 10px;
+        border: 1px solid #D6D6D6;
+    }
+
+    div.dashboard .name{
+        min-width: 150px;
+    }
+
+    div.dashboard li{
+        position: relative;
+        transition-duration: 150ms;
+    }
+
+    div.dashboard li:hover{
+        background-color: #F5F5F5;
+    }
+
+    div.dashboard li:nth-of-type(2n){
+        background-color: #EBEBEB;
+    }
+
+    div.dashboard .email{
+        font-size: 0.9rem;
+    }
+
+    div.dashboard div.actions{
+        z-index: 2;
+    }
+
+
+    a.showmore::before{
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+
 
 </style>
 </body>

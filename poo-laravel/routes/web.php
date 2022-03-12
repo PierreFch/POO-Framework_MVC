@@ -42,4 +42,4 @@ Route::post('/password',[PasswordController::class, 'sendEmail'])->name('passwor
 Route::get('/password-reset/{token}', [PasswordController::class, 'reset'])->name('password.reset');
 Route::post('/password-reset/{token}', [PasswordController::class, 'update'])->name('password.update');
 
-Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard')->middleware('admin');;

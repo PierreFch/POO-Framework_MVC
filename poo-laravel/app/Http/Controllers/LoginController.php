@@ -20,8 +20,10 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials) && ! Auth::user()->is_admin) {
             return redirect()->intended(route('users.index'));
+        } elseif (Auth::user()->is_admin){
+            return redirect(route('dashboard'));
         }
 
         return redirect(route('auth.login'));
