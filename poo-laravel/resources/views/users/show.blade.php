@@ -12,7 +12,7 @@
             <div class="my-4">
                 <a href="<?= url('/users'); ?>" title="">Retour à la liste</a>
             </div>
-            @if(Auth::user()->$user->id)
+            @if(Auth::user() == $user->id)
                 <div class="bottom d-flex align-items-center justify-content-between">
                     <a href="{{route('users.edit', $user)}}" class="btn btn-warning my-1">Modifier l'utilisateur</a>
                     @if(Auth::user()->is_admin)
