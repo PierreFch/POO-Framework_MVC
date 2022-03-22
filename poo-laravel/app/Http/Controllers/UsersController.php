@@ -52,7 +52,7 @@ class UsersController extends Controller
         } else {
             $input = $request->only(['name', 'email', 'avatar_url']);
         }
-        dd($input);
+
         $user->update($input);
 
         return redirect()->intended(route('users.index'));
