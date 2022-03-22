@@ -29,25 +29,6 @@
             </div>
             <div class="form-row">
                 <div class="text my-3 col">
-                    <label for="password">Mot de passe :</label>
-                    <input type="password" id="password" name="password"
-                           class="form-control @error('password') is-invalid @enderror" value="{{ $user->password }}">
-                    @error('password')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="text my-3 col">
-                    <label for="password_confirmation">Confirmer mot de passe :</label>
-                    <input type="password" id="password_confirmation"
-                           name="password_confirmation" value="{{ $user->password }}"
-                           class="form-control @error ('password-confirmation')is-invalid @enderror">
-                    @error ('password_confirmation')
-                    <div class="invalid-feedback"> {{ $message }}</div>
-                    @enderror
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="text my-3 col">
                     <label for="avatar_url">Photo de profil :</label>
                     <input type="text" id="avatar_url" name="avatar_url"
                            class="form-control @error('avatar_url') is-invalid @enderror"
@@ -62,7 +43,7 @@
                     <div class="text my-3 col">
                        <select id="role" name="role" class="form-select">
                             <option value="0">Non admin</option>
-                            <option value="1">Admin</option>
+                            <option value="1" @if ($user->is_admin) selected @endif >Admin</option>
                        </select>
                     </div>
                 @endif

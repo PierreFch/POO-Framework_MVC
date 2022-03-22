@@ -22,7 +22,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials) && ! Auth::user()->is_admin) {
             return redirect()->intended(route('users.index'));
-        } elseif (Auth::user()->is_admin){
+        } elseif (Auth::attempt($credentials) && Auth::user()->is_admin){
             return redirect(route('dashboard'));
         }
 

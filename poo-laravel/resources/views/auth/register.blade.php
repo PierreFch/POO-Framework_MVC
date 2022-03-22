@@ -7,6 +7,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <h1 class="card-header text-center">Inscription</h1>
+
                     <div class="card-body">
                         <form action="{{ route('auth.registration') }}" method="POST">
                             @csrf

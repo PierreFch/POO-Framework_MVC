@@ -29,7 +29,7 @@ class UsersController extends Controller
         $input['password'] = bcrypt($input['password']); // Crypter le mot de passe
         $user = User::create($input);
 
-        return redirect()->route('users.index');
+        return redirect()->route('dashboard');
     }
 
 
@@ -48,10 +48,11 @@ class UsersController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
 
-        $input = $request->only(['name', 'email', 'avatar_url', 'password']);
+        $input = $request->only(['name', 'email', 'avatar_url']);
         $user->update($input);
 
-        return redirect()->route('users.show', $user);
+//        return redirect()->route('users.show', $user);
+        return redirect()->intended(route('dashboard'));
     }
 
 
@@ -59,6 +60,6 @@ class UsersController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('users.index');
+        return redirect()->route('dashboard');
     }
 }

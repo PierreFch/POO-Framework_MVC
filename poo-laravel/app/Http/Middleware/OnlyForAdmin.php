@@ -17,11 +17,14 @@ class OnlyForAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->is_admin) {
+        $auth =Auth::user();
+
+        if ($auth && $auth->is_admin) {
             return $next($request);
-        } elseif(Auth::user() && ! Auth::user()->is_admin){
-            return redirect(route('users.index'));
+        } elseif($auth && ! $auth->is_admin){
+            return redirect(route('users.index'))->with('not-allowed', 'Vous n\'avez pas accès à cette partie du site.');
         }
-        return redirect(route('auth.login'));
+
+        return redirect(route('auth.login'))->with('not-allowed', 'Merci de vous connecter pour accéder au site.');
     }
 }
