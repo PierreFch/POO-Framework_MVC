@@ -47,12 +47,16 @@ class UsersController extends Controller
 
     public function update(UpdateUserRequest $request, User $user)
     {
-
-        $input = $request->only(['name', 'email', 'avatar_url']);
+        dd("caca");
+        if (Auth::user()->is_admin){
+            $input = $request->only(['name', 'email', 'avatar_url', 'is_admin']);
+        } else {
+            $input = $request->only(['name', 'email', 'avatar_url']);
+        }
+        dd($input);
         $user->update($input);
 
-//        return redirect()->route('users.show', $user);
-        return redirect()->intended(route('dashboard'));
+        return redirect()->intended(route('users.index'));
     }
 
 
