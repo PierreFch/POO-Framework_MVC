@@ -47,7 +47,6 @@ class UsersController extends Controller
 
     public function update(UpdateUserRequest $request, User $user)
     {
-        dd("caca");
         if (Auth::user()->is_admin){
             $input = $request->only(['name', 'email', 'avatar_url', 'is_admin']);
         } else {
