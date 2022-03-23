@@ -64,6 +64,10 @@
 
 <style>
 
+    .admin{color: #b5179e}
+
+    .not-admin{color: #4361ee}
+
     h1 {
         font-size: 2.8em;
     }
@@ -126,6 +130,11 @@
 
     div.dashboard .name{
         min-width: 200px;
+        margin-right: 20px;
+    }
+
+    div.dashboard .email{
+        min-width: 250px;
         margin-right: 20px;
     }
 

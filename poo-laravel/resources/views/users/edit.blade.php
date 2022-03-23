@@ -41,7 +41,7 @@
             <div class="form-row">
                 @if(Auth::user()->is_admin && Auth::user() != $user)
                     <div class="text my-3 col">
-                       <select id="role" name="role" class="form-select">
+                       <select id="is_admin" name="is_admin" class="form-select">
                             <option value="0" @if (!$user->is_admin) selected @endif>Non admin</option>
                             <option value="1" @if ($user->is_admin) selected @endif >Admin</option>
                        </select>

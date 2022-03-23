@@ -55,7 +55,11 @@ class UsersController extends Controller
 
         $user->update($input);
 
-        return redirect()->intended(route('users.index'));
+        if (Auth::user()->is_admin){
+            return redirect()->route('dashboard');
+        } else {
+            return redirect()->route('users.index');
+        }
     }
 
 

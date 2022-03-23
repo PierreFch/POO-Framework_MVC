@@ -10,20 +10,30 @@
                     <div class="profil d-flex flex-wrap mr-2">
                         <div class="name">{{ $user->name }}</div>
                         <div class="email">{{ $user->email }}</div>
+                        <div class="status">
+                            @if($user->is_admin)
+                                <span class="admin">admin</span>
+                            @endif
+                            @if(!$user->is_admin)
+                                <span class="not-admin">non admin</span>
+                            @endif
+                        </div>
                     </div>
                     <a href="{{route('users.show', $user)}}" class="showmore"></a>
                     <div class="actions d-flex flex-wrap align-items-center">
                         <div class="edit mr-2">
                             <a href="{{route('users.edit', $user)}}" class="btn btn-warning my-1">Modifier</a>
                         </div>
-                        <div class="delete">
-                            <form action="{{route('users.destroy', $user)}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <input type="submit" id="destroy" name="destroy" value="Supprimer"
-                                       class="btn btn-danger">
-                            </form>
-                        </div>
+                        @if(Auth::user() != $user && Auth::user()->is_admin)
+                            <div class="delete">
+                                <form action="{{route('users.destroy', $user)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" id="destroy" name="destroy" value="Supprimer"
+                                           class="btn btn-danger">
+                                </form>
+                            </div>
+                        @endif
                     </div>
                 </li>
             @endforeach

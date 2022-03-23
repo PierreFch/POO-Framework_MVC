@@ -29,7 +29,7 @@ class UpdateUserRequest extends FormRequest
             'name' => ['required', 'max:255'],
             'email' => ['required', 'email', 'max:255',  Rule::unique('users')->ignore($this->route('user'))],
             'avatar_url' => ['required'],
-            'is_admin' => ['required'],
+            // 'is_admin' => ['required'],
         ];
     }
 }
