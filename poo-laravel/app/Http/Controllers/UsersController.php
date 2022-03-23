@@ -65,7 +65,12 @@ class UsersController extends Controller
 
     public function destroy(User $user)
     {
-        $user->delete();
+
+        if (Auth::user() == $user){
+            $user->delete();
+        } else {
+            return redirect()->back()->with('not-allowed', 'Vous ne pouvez pas supprimer cet utilisateur');
+        }
 
         return redirect()->route('dashboard');
     }
