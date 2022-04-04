@@ -22,12 +22,13 @@
 
 <div class="container">
     @if (session('not-allowed'))
-        <div class="alert alert-danger">
+        <div class="alert">
             {{ session('not-allowed') }}
         </div>
     @endif
 
     @yield('content')
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -1,6 +1,5 @@
 @include('layout')
 
-
     <h1>Inscription</h1>
 
     <form action="{{ route('auth.registration') }}" method="POST">
