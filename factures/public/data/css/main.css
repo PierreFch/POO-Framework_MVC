@@ -3,11 +3,14 @@ body {
 }
 
 a{
-    background-color: dodgerblue;
-    color: #FFF;
     padding: 10px 20px;
     text-decoration: none;
     transition-duration: 200ms;
+}
+
+a.login{
+    background-color: #0D1117;
+    color: #FFF;
 }
 
 a:hover{

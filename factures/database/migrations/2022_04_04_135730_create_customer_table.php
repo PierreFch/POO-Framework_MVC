@@ -13,23 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('customer', function (Blueprint $table) {
             $table->id();
-            $table->integer('github_id');
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('contact_email')->unique();
             $table->string('phone')->nullable();
             $table->string('company_name');
-            $table->string('company_address');
-            $table->string('company_siret');
-            $table->integer('APE');
-            $table->string('bank_incumbent');
-            $table->string('bank_domiciliation');
-            $table->string('bank_details');
-            $table->string('IBAN');
-            $table->string('BIC');
+            $table->string('siret')->nullable();
+            $table->string('address');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -42,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('customer');
     }
 };

@@ -14,6 +14,11 @@
 
 </head>
 <body>
+<header>
+    @auth()
+        Vous êtes connecté !
+    @endauth
+</header>
 
 <div class="container">
     @if (session('not-allowed'))

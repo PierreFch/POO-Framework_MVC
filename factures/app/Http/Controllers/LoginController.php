@@ -18,13 +18,24 @@ class LoginController
         $githubUser = Socialite::driver('github')->user();
 
         $user = User::updateOrCreate([
+            'github_id' => $githubUser->id,
+        ], [
             'name' => $githubUser->name,
             'email' => $githubUser->email,
-            'github_id' => $githubUser->token,
         ]);
 
         Auth::login($user);
 
-        return redirect('/dashboard');
+        return view('auth.register');
+    }
+
+//    public function register()
+//    {
+//        return view('auth.register');
+//    }
+
+    public function registration()
+    {
+        //
     }
 }
