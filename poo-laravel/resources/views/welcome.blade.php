@@ -3,6 +3,6 @@
 @section('content')
     <div class="text-center ">
         <h1 class="my-5">Bienvenue !</h1>
-        <p>Choisissez un onglet dans le menu</p>
+        <p>Connectez-vous et choisissez un onglet dans le menu !</p>
     </div>
 @endsection

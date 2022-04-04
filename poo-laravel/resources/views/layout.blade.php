@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Style -->
+    <link rel="stylesheet" href="{{ asset('data/main.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -62,114 +63,5 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-<style>
-
-    .admin{color: #b5179e}
-
-    .not-admin{color: #4361ee}
-
-    h1 {
-        font-size: 2.8em;
-    }
-
-    ul li {
-        list-style: none;
-        margin: 20px;
-        background: #FFF;
-        box-shadow: 0 8px 10px 0 #D6D6D6;
-        padding-top: 15px;
-    }
-
-    div.dashboard ul li{
-        margin: 0;
-        box-shadow: none;
-    }
-
-    ul li img {
-        width: 100%;
-    }
-
-    ul li div.bottom {
-        padding: 20px 0;
-    }
-
-    body {
-        font-family: 'Nunito', sans-serif;
-        font-size: 1em;
-    }
-
-    div.container {
-        max-width: 1380px;
-        width: 96%;
-        margin: auto;
-        padding: 0 20px;
-    }
-
-    div.left, div.right{
-        width: calc(50% - 40px);
-        display: inline-block;
-        vertical-align: top;
-    }
-
-    div.left img{
-        max-width: 80%;
-    }
-
-    img{max-width: 100%;}
-
-    a.passwordForgotten{font-size: 0.9rem}
-
-    .card h1{font-size: 2rem}
-
-    .card p{font-size: 0.9rem}
-
-    div.dashboard ul{
-        border-radius: 10px;
-        border: 1px solid #D6D6D6;
-    }
-
-    div.dashboard .name{
-        min-width: 200px;
-        margin-right: 20px;
-    }
-
-    div.dashboard .email{
-        min-width: 250px;
-        margin-right: 20px;
-    }
-
-    div.dashboard li{
-        position: relative;
-        transition-duration: 150ms;
-    }
-
-    div.dashboard li:hover{
-        background-color: #F5F5F5;
-    }
-
-    div.dashboard li:nth-of-type(2n){
-        background-color: #EBEBEB;
-    }
-
-    div.dashboard .email{
-        font-size: 0.9rem;
-    }
-
-    div.dashboard div.actions{
-        z-index: 2;
-    }
-
-
-    a.showmore::before{
-        position: absolute;
-        content: '';
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-    }
-
-
-</style>
 </body>
 </html>
