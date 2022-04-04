@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterUserFormRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController
@@ -13,29 +15,43 @@ class LoginController
         return Socialite::driver('github')->redirect();
     }
 
-    public function callback()
+    public function register()
     {
         $githubUser = Socialite::driver('github')->user();
 
-        $user = User::updateOrCreate([
-            'github_id' => $githubUser->id,
-        ], [
-            'name' => $githubUser->name,
-            'email' => $githubUser->email,
-        ]);
+        $user = User::where('github_id', $githubUser->id)->first();
 
-        Auth::login($user);
+        if ($user) {
+            Auth::login($user);
+            return redirect(route('index'));
+        }
 
-        return view('auth.register');
+        return view('auth.register',
+            ['github_id' => $githubUser->id, 'name' => $githubUser->name, 'email' => $githubUser->email]);
     }
 
-//    public function register()
-//    {
-//        return view('auth.register');
-//    }
-
-    public function registration()
+    public function registration(RegisterUserFormRequest  $request)
     {
-        //
+        $input = $request->safe()->only([
+            'github_id',
+            'name',
+            'email',
+            'contact_email',
+            'phone',
+            'company_name',
+            'company_address',
+            'company_siret',
+            'APE',
+            'bank_incumbent',
+            'bank_domiciliation',
+            'bank_details',
+            'IBAN',
+            'BIC',
+        ]);
+
+        $user = User::create($input);
+        Auth::login($user);
+
+        return redirect()->route('index');
     }
 }

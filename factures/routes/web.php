@@ -16,10 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');;
 
 
 Route::get('/login', [LoginController::class, 'redirect'])->name('auth.login');
-Route::get('/auth/callback', [LoginController::class, 'callback'])->name('auth.callback');
-// Route::get('/register', [LoginController::class, 'register'])->name('auth.register');
+Route::get('/auth/callback', [LoginController::class, 'register'])->name('auth.register');
 Route::post('/register', [LoginController::class, 'registration'])->name('auth.registration');

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->integer('github_id');
+            $table->unsignedInteger('github_id')->unique();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('company_name');
             $table->string('company_address');
-            $table->string('company_siret');
+            $table->string('company_siret')->unique();
             $table->integer('APE');
             $table->string('bank_incumbent');
             $table->string('bank_domiciliation');
