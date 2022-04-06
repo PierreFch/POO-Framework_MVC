@@ -1,5 +1,7 @@
 // Variables
-$black: #010409;
+$primary: #010409;
+$submit: #724e91;
+$information: #e54f6d;
 
 $font: 'Nunito', sans-serif;
 
@@ -7,6 +9,7 @@ body {
     margin: 0;
     font-family: $font;
     font-size: 1rem;
+    *{box-sizing: border-box;}
 }
 
 div.container {
@@ -22,7 +25,7 @@ div.left, div.right {
     vertical-align: top;
 }
 
-a, img {
+a, img, input[type = "submit"] {
     transition-duration: 200ms;
 }
 
@@ -32,10 +35,14 @@ a {
     vertical-align: middle;
 
     &.login {
-        background-color: $black;
+        background-color: $primary;
         color: #FFF;
         padding: 10px 20px;
     }
+}
+
+.divPage{
+    margin-bottom: 3rem;
 }
 
 // Accueil
@@ -55,6 +62,16 @@ div.divRegister {
             padding: 8px 10px;
             width: 100%;
             margin: 5px 0;
+        }
+        input[type = "submit"]{
+            border: 0;
+            background-color: $submit;
+            color: #FFF;
+            padding: 10px 20px;
+            cursor: pointer;
+            &:hover{
+                opacity: .9;
+            }
         }
     }
     div.bottom{

@@ -3,6 +3,9 @@ body {
   font-family: "Nunito", sans-serif;
   font-size: 1rem;
 }
+body * {
+  box-sizing: border-box;
+}
 
 div.container {
   max-width: 1380px;
@@ -17,7 +20,7 @@ div.left, div.right {
   vertical-align: top;
 }
 
-a, img {
+a, img, input[type=submit] {
   transition-duration: 200ms;
 }
 
@@ -30,6 +33,10 @@ a.login {
   background-color: #010409;
   color: #FFF;
   padding: 10px 20px;
+}
+
+.divPage {
+  margin-bottom: 3rem;
 }
 
 div.divWelcome {
@@ -45,6 +52,16 @@ div.divRegister form input, div.divRegister form textarea {
   padding: 8px 10px;
   width: 100%;
   margin: 5px 0;
+}
+div.divRegister form input[type=submit] {
+  border: 0;
+  background-color: #724e91;
+  color: #FFF;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+div.divRegister form input[type=submit]:hover {
+  opacity: 0.9;
 }
 div.divRegister div.bottom {
   display: flex;

@@ -3,11 +3,12 @@
 @section('content')
     <div class="divPage divRegister">
 
-    <form action="{{ route('auth.registration') }}" method="POST">
+        <h1>Première connexion, merci de vous inscrire.</h1>
+        <form action="{{ route('auth.registration') }}" method="POST">
         @csrf
-        <input type="hidden" value="{{ $github_id }}" name="github_id" required>
+        <input type="hidden" value="{{ $github_id }}" name="github_id" disabled required>
         <div class="top">
-            <h1>Inscription</h1>
+            <h2>Coordonnées</h2>
             <div class="text">
                 <input type="text" value="{{ $name }}" placeholder="Nom" id="name" name="name">
                 @error ('name')
@@ -15,7 +16,7 @@
                 @enderror
             </div>
             <div class="email">
-                <input type="email" value="{{ $email }}" placeholder="Email" id="email" name="email">
+                <input type="email" value="{{ $email }}" placeholder="Email" id="email" name="email" readonly disabled>
                 @error ('email')
                 <div class="invalid"> {{ $message }}</div>
                 @enderror
@@ -36,12 +37,6 @@
         <div class="bottom">
             <div class="left">
                 <h2>Entreprise</h2>
-                <div class="text">
-                    <input type="text" value="{{ old('company_name') }}" placeholder="Nom de l'entreprise" id="company-name" name="company-name">
-                    @error ('company_name')
-                    <div class="invalid">{{ $message }}</div>
-                    @enderror
-                </div>
                 <div class="text">
                     <input type="text" value="{{ old('company_address') }}" placeholder="Adresse de l'entreprise" id="company-address" name="company-address">
                     @error ('company_address')
@@ -94,7 +89,7 @@
             @enderror
         </div>
             <div class="submit">
-                <button type="submit">S'inscrire</button>
+                <input type="submit" value="S'inscrire">
             </div>
         </div>
         </div>

@@ -25,20 +25,20 @@ class RegisterUserFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'github_id' => ['required', 'integer'],
+            'github_id' => ['required', 'integer', Rule::unique('users')],
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255', Rule::unique('users')],
+            'email' => ['required', 'email', 'max:255'],
             'contact_email' => ['required', 'email', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
             'company_name' => ['required', 'string', 'max:255'],
             'company_address' => ['required', 'string', 'max:255'],
             'company_siret' => ['required', 'string', 'max:255', Rule::unique('users')],
             'APE' => ['required', 'integer', 'max:255'],
-            'bank_incumbent' => ['required', 'string', 'max:255', Rule::unique('users')],
+            'bank_incumbent' => ['required', 'string', 'max:255'],
             'bank_domiciliation' => ['required', 'string', 'max:255'],
-            'bank_details' => ['required', 'string', 'max:255', Rule::unique('users')],
-            'IBAN' => ['required', 'string', 'max:255', Rule::unique('users')],
-            'BIC' => ['required', 'string', 'max:255', Rule::unique('users')],
+            'bank_details' => ['required', 'string', 'max:255'],
+            'IBAN' => ['required', 'string', 'max:255'],
+            'BIC' => ['required', 'string', 'max:255'],
         ];
     }
 }

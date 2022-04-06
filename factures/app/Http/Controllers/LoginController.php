@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\RegisterUserFormRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
 use Laravel\Socialite\Facades\Socialite;
 
-class LoginController
+class LoginController extends Controller
 {
     public function redirect()
     {
@@ -18,7 +18,6 @@ class LoginController
     public function register()
     {
         $githubUser = Socialite::driver('github')->user();
-
         $user = User::where('github_id', $githubUser->id)->first();
 
         if ($user) {
@@ -27,18 +26,21 @@ class LoginController
         }
 
         return view('auth.register',
-            ['github_id' => $githubUser->id, 'name' => $githubUser->name, 'email' => $githubUser->email]);
+            [
+                'github_id' => $githubUser->id,
+                'name' => $githubUser->name,
+                'email' => $githubUser->email
+            ]);
     }
 
     public function registration(RegisterUserFormRequest  $request)
     {
-        $input = $request->safe()->only([
+        $input = $request->only([
             'github_id',
             'name',
             'email',
             'contact_email',
             'phone',
-            'company_name',
             'company_address',
             'company_siret',
             'APE',
@@ -48,10 +50,12 @@ class LoginController
             'IBAN',
             'BIC',
         ]);
-
         $user = User::create($input);
+
         Auth::login($user);
 
         return redirect()->route('index');
+
+
     }
 }
