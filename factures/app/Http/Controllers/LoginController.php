@@ -50,12 +50,11 @@ class LoginController extends Controller
             'IBAN',
             'BIC',
         ]);
+
         $user = User::create($input);
 
         Auth::login($user);
 
         return redirect()->route('index');
-
-
     }
 }

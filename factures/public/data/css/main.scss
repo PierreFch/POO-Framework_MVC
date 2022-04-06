@@ -5,6 +5,12 @@ $information: #e54f6d;
 
 $font: 'Nunito', sans-serif;
 
+// Bootstrap
+.text-center{
+    text-align: center;
+}
+
+// Elements communs
 body {
     margin: 0;
     font-family: $font;

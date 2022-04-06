@@ -20,5 +20,5 @@ Route::get('/', function () {
 
 
 Route::get('/login', [LoginController::class, 'redirect'])->name('auth.login');
-Route::get('/auth/callback', [LoginController::class, 'register'])->name('auth.register');
-Route::post('/register', [LoginController::class, 'registration'])->name('auth.registration');
+Route::get('/register', [LoginController::class, 'register'])->name('auth.register');
+Route::post('/registration', [LoginController::class, 'registration'])->name('auth.registration');

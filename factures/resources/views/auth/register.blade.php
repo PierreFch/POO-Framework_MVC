@@ -3,7 +3,7 @@
 @section('content')
     <div class="divPage divRegister">
 
-        <h1>Première connexion, merci de vous inscrire.</h1>
+        <h1 class="text-center">Première connexion, merci de vous inscrire.</h1>
         <form action="{{ route('auth.registration') }}" method="POST">
         @csrf
         <input type="hidden" value="{{ $github_id }}" name="github_id" disabled required>
