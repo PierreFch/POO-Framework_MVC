@@ -35,7 +35,7 @@ class LoginController extends Controller
 
     public function registration(RegisterUserFormRequest  $request)
     {
-        $input = $request->only([
+        $input = $request->safe()->only([
             'github_id',
             'name',
             'email',
@@ -43,18 +43,18 @@ class LoginController extends Controller
             'phone',
             'company_address',
             'company_siret',
-            'APE',
+            'company_ape',
             'bank_incumbent',
             'bank_domiciliation',
-            'bank_details',
-            'IBAN',
-            'BIC',
+            'bank_rib',
+            'bank_iban',
+            'bank_bic',
         ]);
 
         $user = User::create($input);
 
         Auth::login($user);
 
-        return redirect()->route('index');
+        return redirect(route('index'))->with('status', 'Bravo ! Vous êtes désormais inscrit.');
     }
 }

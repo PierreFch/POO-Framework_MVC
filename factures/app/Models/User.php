@@ -26,12 +26,12 @@ class User extends Authenticatable
         'company_name',
         'company_address',
         'company_siret',
-        'APE',
+        'ape',
         'bank_incumbent',
         'bank_domiciliation',
         'bank_details',
-        'IBAN',
-        'BIC'
+        'iban',
+        'bic'
     ];
 
     /**

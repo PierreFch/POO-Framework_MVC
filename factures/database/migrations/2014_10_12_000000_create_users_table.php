@@ -23,12 +23,12 @@ return new class extends Migration
             $table->string('phone');
             $table->string('company_address');
             $table->string('company_siret')->unique();
-            $table->integer('APE');
+            $table->integer('company_ape');
             $table->string('bank_incumbent');
             $table->string('bank_domiciliation');
-            $table->string('bank_details');
-            $table->string('IBAN');
-            $table->string('BIC');
+            $table->string('bank_rib');
+            $table->string('bank_iban');
+            $table->string('bank_bic');
             $table->rememberToken();
             $table->timestamps();
         });
