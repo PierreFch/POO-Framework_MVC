@@ -15,14 +15,14 @@ class LoginController extends Controller
         return Socialite::driver('github')->redirect();
     }
 
-    public function register()
+    public function callback()
     {
         $githubUser = Socialite::driver('github')->user();
         $user = User::where('github_id', $githubUser->id)->first();
 
         if ($user) {
             Auth::login($user);
-            return redirect(route('index'));
+            return redirect(route('dashboard'))->with('status', 'Vous êtes connecté !');
         }
 
         return view('auth.register',
@@ -55,6 +55,17 @@ class LoginController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('index'))->with('status', 'Bravo ! Vous êtes désormais inscrit.');
+        return redirect(route('dashboard'))->with('status', 'Bravo ! Vous êtes désormais inscrit.');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect(route('index'));
+    }
+
+    public function dashboard()
+    {
+        return view('dashboard');
     }
 }

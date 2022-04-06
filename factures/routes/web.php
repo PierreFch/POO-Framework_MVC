@@ -20,5 +20,7 @@ Route::get('/', function () {
 
 
 Route::get('/login', [LoginController::class, 'redirect'])->name('auth.login');
-Route::get('/register', [LoginController::class, 'register'])->name('auth.register');
+Route::get('/callback', [LoginController::class, 'callback'])->name('auth.register');
 Route::post('/register', [LoginController::class, 'registration'])->name('auth.registration');
+Route::get('/logout', [LoginController::class, 'logout'])->name('auth.logout');
+Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');

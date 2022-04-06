@@ -16,7 +16,7 @@
                     @enderror
                 </div>
                 <div class="email">
-                    <input type="email" value="{{ $email }}" placeholder="Email" id="email" name="email" readonly disabled>
+                    <input type="email" value="{{ $email }}" placeholder="Email" id="email" name="email" readonly>
                     @error ('email')
                     <div class="invalid"> {{ $message }}</div>
                     @enderror

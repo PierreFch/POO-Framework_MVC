@@ -18,18 +18,16 @@ return new class extends Migration
             $table->unsignedInteger('github_id')->unique();
             $table->string('name');
             $table->string('email');
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('contact_email');
             $table->string('phone');
             $table->string('company_address');
             $table->string('company_siret')->unique();
-            $table->integer('company_ape');
+            $table->string('company_ape');
             $table->string('bank_incumbent');
             $table->string('bank_domiciliation');
             $table->string('bank_rib');
             $table->string('bank_iban');
             $table->string('bank_bic');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

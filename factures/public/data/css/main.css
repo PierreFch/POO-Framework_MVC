@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.success {
+  display: inline-block;
+  background-color: #d4edda;
+  color: #155724;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.25rem;
+}
+
 body {
   margin: 0;
   font-family: "Nunito", sans-serif;
@@ -38,9 +46,29 @@ a.login {
   color: #FFF;
   padding: 10px 20px;
 }
+a.logout {
+  background-color: #724e91;
+  color: #FFF;
+  padding: 10px 20px;
+}
 
 .divPage {
   margin-bottom: 3rem;
+}
+
+header {
+  padding: 1rem;
+  background-color: #FFF;
+  box-shadow: 0 7px 5px 0 #EBEBEB;
+}
+header .banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+header .banner .button {
+  margin-left: auto;
 }
 
 div.divWelcome {

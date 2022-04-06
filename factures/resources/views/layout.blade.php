@@ -15,8 +15,19 @@
 </head>
 <body>
 <header>
+
     @auth()
-        Vous êtes connecté !
+        <div class="banner">
+            @if (session('status'))
+                <div class="success">
+                    {{ session('status') }}
+                </div>
+            @endif
+            <div class="button">
+                <a href="{{route('auth.logout')}}" title="Se déconnecter" class="logout">Se déconnecter</a>
+            </div>
+
+        </div>
     @endauth
 </header>
 

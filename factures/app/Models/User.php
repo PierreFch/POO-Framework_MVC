@@ -26,12 +26,12 @@ class User extends Authenticatable
         'company_name',
         'company_address',
         'company_siret',
-        'ape',
+        'company_ape',
         'bank_incumbent',
         'bank_domiciliation',
-        'bank_details',
-        'iban',
-        'bic'
+        'bank_rib',
+        'bank_iban',
+        'bank_bic'
     ];
 
     /**
@@ -40,7 +40,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'remember_token',
+        'created_at',
+        'updated_at',
     ];
 
     /**
@@ -49,6 +50,6 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+       //
     ];
 }

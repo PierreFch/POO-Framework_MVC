@@ -32,7 +32,7 @@ class RegisterUserFormRequest extends FormRequest
             'phone' => ['required', 'string', 'max:191'],
             'company_address' => ['required', 'string', 'max:191'],
             'company_siret' => ['required', 'string', 'max:191', 'unique:users'],
-            'company_ape' => ['required', 'integer', 'max:191'],
+            'company_ape' => ['required', 'string', 'max:191'],
             'bank_incumbent' => ['required', 'string', 'max:191'],
             'bank_domiciliation' => ['required', 'string', 'max:191'],
             'bank_rib' => ['required', 'string', 'max:191'],

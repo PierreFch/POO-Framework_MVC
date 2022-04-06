@@ -2,12 +2,31 @@
 $primary: #010409;
 $submit: #724e91;
 $information: #e54f6d;
+$shadow: #EBEBEB;
+
+$successBg: #d4edda;
+$success: #155724;
 
 $font: 'Nunito', sans-serif;
+
+// Mixin
+@mixin button($color: $submit, $secondColor: #FFF){
+    background-color: $color;
+    color: $secondColor;
+    padding: 10px 20px;
+}
 
 // Bootstrap
 .text-center{
     text-align: center;
+}
+
+.success{
+    display: inline-block;
+    background-color: $successBg;
+    color: $success;
+    padding: .75rem 1.25rem;
+    border-radius: .25rem;
 }
 
 // Elements communs
@@ -41,14 +60,32 @@ a {
     vertical-align: middle;
 
     &.login {
-        background-color: $primary;
-        color: #FFF;
-        padding: 10px 20px;
+        @include button($primary);
+    }
+
+    &.logout{
+        @include button($submit);
     }
 }
 
 .divPage{
     margin-bottom: 3rem;
+}
+
+// Header
+header{
+    padding: 1rem;
+    background-color: #FFF;
+    box-shadow: 0 7px 5px 0 $shadow;
+    .banner{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .button{
+            margin-left: auto;
+        }
+    }
 }
 
 // Accueil
@@ -86,4 +123,9 @@ div.divRegister {
         justify-content: space-between;
         flex-wrap: wrap;
     }
+}
+
+// Dashboard
+divDashboard{
+
 }
