@@ -1,0 +1,66 @@
+// Variables
+$black: #010409;
+
+$font: 'Nunito', sans-serif;
+
+body {
+    margin: 0;
+    font-family: $font;
+    font-size: 1rem;
+}
+
+div.container {
+    max-width: 1380px;
+    padding: 0 20px;
+    margin: auto;
+    width: 100%;
+}
+
+div.left, div.right {
+    width: calc(50% - 40px);
+    display: inline-block;
+    vertical-align: top;
+}
+
+a, img {
+    transition-duration: 200ms;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+
+    &.login {
+        background-color: $black;
+        color: #FFF;
+        padding: 10px 20px;
+    }
+}
+
+// Accueil
+div.divWelcome {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// Register
+div.divRegister {
+    form {
+        input, textarea {
+            font-family: $font;
+            font-size: 1rem;
+            padding: 8px 10px;
+            width: 100%;
+            margin: 5px 0;
+        }
+    }
+    div.bottom{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}

@@ -1,30 +1,56 @@
 body {
-    font-family: 'Nunito', sans-serif;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
 }
 
-a{
-    padding: 10px 20px;
-    text-decoration: none;
-    transition-duration: 200ms;
+div.container {
+  max-width: 1380px;
+  padding: 0 20px;
+  margin: auto;
+  width: 100%;
 }
 
-a.login{
-    background-color: #0D1117;
-    color: #FFF;
+div.left, div.right {
+  width: calc(50% - 40px);
+  display: inline-block;
+  vertical-align: top;
 }
 
-a:hover{
-    opacity: .9;
+a, img {
+  transition-duration: 200ms;
 }
 
-div.container{
-    max-width: 1380px;
-    width: 100%;
-    padding: 0 1rem;
-    margin: auto;
+a {
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+a.login {
+  background-color: #010409;
+  color: #FFF;
+  padding: 10px 20px;
 }
 
-div.btn{
-    text-align: center;
-    margin: 5rem;
+div.divWelcome {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+div.divRegister form input, div.divRegister form textarea {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  padding: 8px 10px;
+  width: 100%;
+  margin: 5px 0;
+}
+div.divRegister div.bottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/*# sourceMappingURL=main.css.map */
