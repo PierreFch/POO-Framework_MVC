@@ -1,8 +1,10 @@
 // Variables
 $primary: #010409;
 $submit: #724e91;
+$lightSubmit: #7F5F9B;
 $information: #e54f6d;
 $shadow: #EBEBEB;
+$bgLight: #F5F5F5;
 
 $successBg: #d4edda;
 $success: #155724;
@@ -34,6 +36,7 @@ body {
     margin: 0;
     font-family: $font;
     font-size: 1rem;
+    background-color: $bgLight;
     *{box-sizing: border-box;}
 }
 
@@ -65,6 +68,9 @@ a {
 
     &.logout{
         @include button($submit);
+        &:hover{
+            background-color: $lightSubmit;
+        }
     }
 }
 
@@ -76,7 +82,6 @@ a {
 header{
     padding: 1rem;
     background-color: #FFF;
-    box-shadow: 0 7px 5px 0 $shadow;
     .banner{
         display: flex;
         align-items: center;
@@ -126,6 +131,38 @@ div.divRegister {
 }
 
 // Dashboard
-divDashboard{
-
+div.divDashboard{
+    height: 100vh;
+    div.left{
+        width: 30%;
+        height: 100%;
+        box-shadow: 7px 0 5px 0 $shadow;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 1rem;
+        color: #FFF;
+        background-color: $submit;
+        h2{
+            font-size: 2rem;
+        }
+        ul{padding-left: 0}
+        li{
+            list-style: none;
+            a{
+                padding: 1.25rem 1.5rem;
+                color: #FFF;
+                width: 100%;
+                &:hover{
+                    background-color: $lightSubmit;
+                }
+            }
+        }
+    }
+    div.right{
+        margin-left: 30%; //Div left width
+        section{
+            margin: 2rem 0;
+        }
+    }
 }

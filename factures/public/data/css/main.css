@@ -14,6 +14,7 @@ body {
   margin: 0;
   font-family: "Nunito", sans-serif;
   font-size: 1rem;
+  background-color: #F5F5F5;
 }
 body * {
   box-sizing: border-box;
@@ -51,6 +52,9 @@ a.logout {
   color: #FFF;
   padding: 10px 20px;
 }
+a.logout:hover {
+  background-color: #7F5F9B;
+}
 
 .divPage {
   margin-bottom: 3rem;
@@ -59,7 +63,6 @@ a.logout {
 header {
   padding: 1rem;
   background-color: #FFF;
-  box-shadow: 0 7px 5px 0 #EBEBEB;
 }
 header .banner {
   display: flex;
@@ -100,6 +103,44 @@ div.divRegister div.bottom {
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+div.divDashboard {
+  height: 100vh;
+}
+div.divDashboard div.left {
+  width: 30%;
+  height: 100%;
+  box-shadow: 7px 0 5px 0 #EBEBEB;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  color: #FFF;
+  background-color: #724e91;
+}
+div.divDashboard div.left h2 {
+  font-size: 2rem;
+}
+div.divDashboard div.left ul {
+  padding-left: 0;
+}
+div.divDashboard div.left li {
+  list-style: none;
+}
+div.divDashboard div.left li a {
+  padding: 1.25rem 1.5rem;
+  color: #FFF;
+  width: 100%;
+}
+div.divDashboard div.left li a:hover {
+  background-color: #7F5F9B;
+}
+div.divDashboard div.right {
+  margin-left: 30%;
+}
+div.divDashboard div.right section {
+  margin: 2rem 0;
 }
 
 /*# sourceMappingURL=main.css.map */
