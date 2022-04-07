@@ -62,11 +62,13 @@ class ClientController extends Controller
         return redirect()->route('clients.index');
     }
 
-
     public function destroy(Client $client)
     {
-        $client->delete();
-
-        return redirect()->route('clients.index');
+        if (Auth::user() == $client->user)
+        {
+            $client->delete();
+            return redirect(route('clients.index'))->with('success', 'Le client à été supprimé !');
+        }
+        return redirect(route('clients.index'))->with('error', "Vous ne pouvez pas supprimer ce client.");
     }
 }

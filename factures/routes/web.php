@@ -32,6 +32,7 @@ Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard
 Route::get('/account', [UserController::class, 'index'])->name('user.index');
 Route::get('/account/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
 Route::put('/account/edit/{user}', [UserController::class, 'update'])->name('user.update');
+Route::delete('/account/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 
 Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
 Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');

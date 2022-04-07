@@ -23,26 +23,28 @@
             </thead>
             <tbody>
             @foreach($clients as $client)
-                <tr>
-                    <td>{{ $client->reference }}</td>
-                    <td></td>
-                    <td>{{ $client->name }}</td>
-                    <td>{{ $client->email }}</td>
-                    <td>{{ $client->phone }}</td>
-                    <td>{{ $client->company_siret }}</td>
-                    <td>{{ $client->company_address }}</td>
-                    <td>
-                        <a href="{{ route('clients.edit', $client) }}" title="Modifier l'utilisateur" class="button blue">Modifier</a>
-                    </td>
-                    <td>
-                        <form action="{{ route('clients.destroy', $client) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" id="destroy" name="destroy" value="Supprimer"
-                                   class="button danger">
-                        </form>
-                    </td>
-                </tr>
+                @if($client->user_id == Auth::user()->id)
+                    <tr>
+                        <td>{{ $client->reference }}</td>
+                        <td></td>
+                        <td>{{ $client->name }}</td>
+                        <td>{{ $client->email }}</td>
+                        <td>{{ $client->phone }}</td>
+                        <td>{{ $client->company_siret }}</td>
+                        <td>{{ $client->company_address }}</td>
+                        <td>
+                            <a href="{{ route('clients.edit', $client) }}" title="Modifier l'utilisateur" class="button blue">Modifier</a>
+                        </td>
+                        <td>
+                            <form action="{{ route('clients.destroy', $client) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" id="destroy" name="destroy" value="Supprimer"
+                                       class="button danger">
+                            </form>
+                        </td>
+                    </tr>
+                @endif
             @endforeach
             </tbody>
         </table>

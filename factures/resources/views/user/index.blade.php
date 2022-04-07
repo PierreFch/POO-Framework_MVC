@@ -8,26 +8,46 @@
         </a>
         <h1>Mon compte</h1>
 
-        <h2>Mes coordonnées</h2>
-        <div>{{ $user->name }}</div>
-        <div>{{ $user->email }}</div>
-        <div>{{ $user->contact_email }}</div>
-        <div>{{ $user->phone }}</div>
-
-        <h2>Entreprise</h2>
-        <div>{{ $user->company_address }}</div>
-        <div>{{ $user->company_siret }}</div>
-        <div>{{ $user->company_ape }}</div>
-
-        <h2>Banque</h2>
-        <div>{{ $user->bank_incumbent }}</div>
-        <div>{{ $user->bank_domiciliation }}</div>
-        <div>{{ $user->bank_rib }}</div>
-        <div>{{ $user->bank_iban }}</div>
-        <div>{{ $user->bank_bic }}</div>
-
+        <div class="columns">
+            <div class="left">
+                <h2>Mes coordonnées</h2>
+                <div><span class="bold">Nom :</span> {{ $user->name }}</div>
+                <div><span class="bold">Email :</span> {{ $user->email }}</div>
+                <div><span class="bold">Email de contact :</span> {{ $user->contact_email }}</div>
+                <div><span class="bold">Téléphone :</span> {{ $user->phone }}</div>
+            </div>
+            <div class="middle">
+                <h2>Entreprise</h2>
+                <div><span class="bold">Adresse :</span> {{ $user->company_address }}</div>
+                <div><span class="bold">SIRET :</span> {{ $user->company_siret }}</div>
+                <div><span class="bold">APE :</span> {{ $user->company_ape }}</div>
+            </div>
+            <div class="right">
+                <h2>Banque</h2>
+                <div><span class="bold">Titulaire :</span> {{ $user->bank_incumbent }}</div>
+                <div><span class="bold">Domiciliation :</span> {{ $user->bank_domiciliation }}</div>
+                <div><span class="bold">RIB :</span> {{ $user->bank_rib }}</div>
+                <div><span class="bold">IBAN :</span> {{ $user->bank_iban }}</div>
+                <div><span class="bold">BIC :</span> {{ $user->bank_bic }}</div>
+            </div>
+        </div>
         <div class="bottom">
-            <a href="{{ route('user.edit', $user) }}" title="Modifier mon compte" class="button">Modifier mon compte</a>
+            <div class="edit">
+                <a href="{{ route('user.edit', $user) }}" title="Modifier mon compte" class="button">Modifier mon
+                    compte</a>
+            </div>
+            <div class="delete">
+                <form action="{{ route('user.destroy', $user) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" id="destroy" name="destroy" value="Supprimer mon compte"
+                           class="button danger">
+                </form>
+            </div>
         </div>
     </div>
+    </div>
 @endsection
+
+
+

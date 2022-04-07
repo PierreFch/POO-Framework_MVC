@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Client;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,14 +41,12 @@ class UserController extends Controller
         return redirect()->route('user.index');
     }
 
-    public function destroy(User $user)
+    public function destroy(Client $client)
     {
-        if (Auth::user() == $user){
-            $user->delete();
-        } else {
-            return redirect()->back()->with('not-allowed', 'Vous ne pouvez pas supprimer cet utilisateur');
+        foreach (Auth::user()->clients as $client) {
+            $client->delete();
         }
-
-        return redirect()->route('index');
+        Auth::user()->delete();
+        return redirect(route('auth.login'))->with('success', "Votre compte à été supprimé !");
     }
 }

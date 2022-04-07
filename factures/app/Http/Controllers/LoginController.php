@@ -63,7 +63,7 @@ class LoginController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard'))->with('success', 'Bravo ! Vous êtes désormais inscrit.');
+        return redirect(route('dashboard'))->with('success', 'Bravo ! Vous êtes inscrit.');
     }
 
     public function logout()
