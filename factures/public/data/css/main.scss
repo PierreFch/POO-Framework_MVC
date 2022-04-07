@@ -116,6 +116,12 @@ form {
             opacity: .9;
         }
     }
+    div.bottom{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 }
 
 .divPage{
@@ -145,16 +151,6 @@ div.divWelcome {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-// Register
-div.divRegister {
-    div.bottom{
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
 }
 
 // Dashboard

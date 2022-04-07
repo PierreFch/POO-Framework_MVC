@@ -18,9 +18,9 @@
 
     @auth()
         <div class="banner">
-            @if (session('status'))
+            @if (session('success'))
                 <div class="success">
-                    {{ session('status') }}
+                    {{ session('success') }}
                 </div>
             @endif
             <div class="button">

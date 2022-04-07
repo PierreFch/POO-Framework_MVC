@@ -30,7 +30,7 @@ class LoginController extends Controller
 
         if ($user) {
             Auth::login($user);
-            return redirect(route('dashboard'))->with('status', 'Vous êtes connecté !');
+            return redirect(route('dashboard'))->with('success', 'Vous êtes connecté !');
         }
 
         return view('user.register',
@@ -63,7 +63,7 @@ class LoginController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard'))->with('status', 'Bravo ! Vous êtes désormais inscrit.');
+        return redirect(route('dashboard'))->with('success', 'Bravo ! Vous êtes désormais inscrit.');
     }
 
     public function logout()

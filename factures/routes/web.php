@@ -30,5 +30,6 @@ Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard
 
 Route::get('/account', [UserController::class, 'index'])->name('user.index');
 Route::get('/account/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::put('/account/edit', [UserController::class, 'update'])->name('user.update');
 
 Route::get('/missions', [MissionController::class, 'create'])->name('missions.create')->middleware('user');

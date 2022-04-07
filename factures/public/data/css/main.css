@@ -95,6 +95,12 @@ form a.submit, form input[type=submit] {
 form a.submit:hover, form input[type=submit]:hover {
   opacity: 0.9;
 }
+form div.bottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 
 .divPage {
   margin-bottom: 3rem;
@@ -121,13 +127,6 @@ div.divWelcome {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-div.divRegister div.bottom {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 div.divDashboard {
