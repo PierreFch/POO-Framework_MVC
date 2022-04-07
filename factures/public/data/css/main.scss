@@ -88,14 +88,6 @@ a {
             }
         }
     }
-    &.account{
-        display: inline-flex;
-        align-items: center;
-        margin-bottom: 1rem;
-        img{
-            margin-right: 10px;
-        }
-    }
 }
 
 form {
@@ -193,6 +185,19 @@ div.divDashboard{
             }
             div.bottom{
                 align-self: end;
+                a{
+                    display: inline-flex;
+                    align-items: center;
+                    img{
+                        margin-right: 10px;
+                    }
+                    &.account{
+                        margin-bottom: 1rem;
+                    }
+                }
+                img{
+                    width: 25px;
+                }
             }
         }
     }

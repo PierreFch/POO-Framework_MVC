@@ -1,9 +1,9 @@
 @extends('layout')
 
 @section('content')
-    <div class="divPage divDevis">
-        <a href="{{ URL::previous() }}" title="Retour en arrière" class="back">
-            <img src="{{ asset('data/images/back.png') }}" title="Retour en arrière"/>
+    <div class="divPage divAccount edit">
+        <a href="{{ route('user.index') }}" title="Retour en arrière" class="back">
+            <img src="{{ asset('data/images/back.png') }}" alt="Compte" title="Retour en arrière"/>
             Retour en arrière
         </a>
         <h1>Modifier mon compte</h1>
@@ -11,7 +11,6 @@
         <form action="{{route('user.update', $user)}}" method="POST">
             @csrf
             @method('PUT')
-
             <div class="top">
                 <h2>Coordonnées</h2>
                 <div class="text">

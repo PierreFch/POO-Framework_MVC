@@ -69,14 +69,6 @@ a.back img {
 a.back:hover img {
   transform: translateX(-5px);
 }
-a.account {
-  display: inline-flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-a.account img {
-  margin-right: 10px;
-}
 
 form input, form textarea {
   font-family: "Nunito", sans-serif;
@@ -171,6 +163,19 @@ div.divDashboard div.left nav div.top, div.divDashboard div.left nav div.bottom 
 }
 div.divDashboard div.left nav div.bottom {
   align-self: end;
+}
+div.divDashboard div.left nav div.bottom a {
+  display: inline-flex;
+  align-items: center;
+}
+div.divDashboard div.left nav div.bottom a img {
+  margin-right: 10px;
+}
+div.divDashboard div.left nav div.bottom a.account {
+  margin-bottom: 1rem;
+}
+div.divDashboard div.left nav div.bottom img {
+  width: 25px;
 }
 div.divDashboard div.right {
   margin-left: 30%;

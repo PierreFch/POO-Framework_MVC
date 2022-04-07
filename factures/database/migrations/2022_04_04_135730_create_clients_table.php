@@ -19,11 +19,9 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('name');
             $table->string('email');
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('phone');
             $table->string('company_siret');
             $table->string('company_address');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

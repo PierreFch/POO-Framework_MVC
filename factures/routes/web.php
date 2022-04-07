@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DevisController;
@@ -31,5 +32,7 @@ Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard
 Route::get('/account', [UserController::class, 'index'])->name('user.index');
 Route::get('/account/edit', [UserController::class, 'edit'])->name('user.edit');
 Route::put('/account/edit', [UserController::class, 'update'])->name('user.update');
+
+Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
 
 Route::get('/missions', [MissionController::class, 'create'])->name('missions.create')->middleware('user');

@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="divPage divAccount">
-        <a href="{{ URL::previous() }}" title="Retour en arrière" class="back">
-            <img src="{{ asset('data/images/back.png') }}" title="Retour en arrière"/>
+        <a href="{{ route('dashboard') }}" title="Retour en arrière" class="back">
+            <img src="{{ asset('data/images/back.png') }}" alt="Back" title="Retour en arrière"/>
             Retour en arrière
         </a>
         <h1>Mon compte</h1>

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="divPage divRegister">
+    <div class="divPage divAccount register">
         <h1 class="text-center">Première connexion, merci de vous inscrire.</h1>
 
         <form action="{{ route('user.registration') }}" method="POST">
