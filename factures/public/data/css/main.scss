@@ -5,9 +5,16 @@ $lightSubmit: #7F5F9B;
 $information: #e54f6d;
 $shadow: #EBEBEB;
 $bgLight: #F5F5F5;
+$bgLightGrey: #EBEBEB;
+$blue: #007bff;
 
 $successBg: #d4edda;
 $success: #155724;
+
+$errorBg: #F8D7DA;
+$error: #721C24;
+
+$danger: #CC0000;
 
 $font: 'Nunito', sans-serif;
 
@@ -17,6 +24,13 @@ $font: 'Nunito', sans-serif;
     color: $secondColor;
     padding: 10px 20px;
 }
+@mixin alert($bg: $successBg ,$color:$success){
+    display: inline-block;
+    background-color: $bg;
+    color: $color;
+    padding: .75rem 1.25rem;
+    border-radius: .25rem;
+}
 
 // Bootstrap
 .text-center{
@@ -24,11 +38,11 @@ $font: 'Nunito', sans-serif;
 }
 
 .success{
-    display: inline-block;
-    background-color: $successBg;
-    color: $success;
-    padding: .75rem 1.25rem;
-    border-radius: .25rem;
+    @include alert();
+}
+
+.invalid{
+    @include alert($errorBg, $error);
 }
 
 // Elements communs
@@ -65,13 +79,6 @@ a {
     &.login {
         @include button($primary);
     }
-
-    &.button{
-        @include button($submit);
-        &:hover{
-            background-color: $lightSubmit;
-        }
-    }
     &.back{
         color: $submit;
         font-weight: 600;
@@ -87,6 +94,22 @@ a {
                 transform: translateX(-5px);
             }
         }
+    }
+}
+
+.button{
+    @include button($submit);
+    &:hover{
+        background-color: $lightSubmit;
+    }
+    &.pink{
+        background-color: $information;
+    }
+    &.danger{
+        background-color: $danger;
+    }
+    &.blue{
+        background-color: $blue;
     }
 }
 
@@ -114,10 +137,31 @@ form {
         justify-content: space-between;
         flex-wrap: wrap;
     }
+    div.invalid{
+        width: 100%;
+    }
 }
 
 .divPage{
     margin-bottom: 3rem;
+}
+
+table{
+    width: 100%;
+    border-spacing:0;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    th{
+        text-align: left;
+    }
+    th, td{
+        padding: .5rem;
+    }
+    tbody{
+        tr:nth-of-type(2n){
+            background-color: $bgLightGrey;
+        }
+    }
 }
 
 // Header
@@ -131,7 +175,7 @@ header{
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
-        .button{
+        .logout{
             margin-left: auto;
         }
     }

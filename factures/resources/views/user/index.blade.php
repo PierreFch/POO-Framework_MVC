@@ -27,7 +27,7 @@
         <div>{{ $user->bank_bic }}</div>
 
         <div class="bottom">
-            <a href="{{ route('user.edit') }}" title="Modifier mon compte" class="button">Modifier mon compte</a>
+            <a href="{{ route('user.edit', $user) }}" title="Modifier mon compte" class="button">Modifier mon compte</a>
         </div>
     </div>
 @endsection

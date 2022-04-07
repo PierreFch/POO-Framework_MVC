@@ -18,20 +18,13 @@ class Client extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'github_id',
+        'reference',
+        'user_id',
         'name',
         'email',
-        'contact_email',
         'phone',
-        'company_name',
-        'company_address',
         'company_siret',
-        'company_ape',
-        'bank_incumbent',
-        'bank_domiciliation',
-        'bank_rib',
-        'bank_iban',
-        'bank_bic'
+        'company_address'
     ];
 
     /**

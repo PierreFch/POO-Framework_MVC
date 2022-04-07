@@ -24,7 +24,7 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <div class="button">
+            <div class="logout">
                 <a href="{{ route('user.logout') }}" title="Se déconnecter" class="button">Se déconnecter</a>
             </div>
 

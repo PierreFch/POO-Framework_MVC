@@ -23,12 +23,12 @@
                     <div class="bottom">
                         <li>
                             <a href="{{ route('clients.index') }}" title="Mes clients">
-                                <img src="{{ asset('data/images/clients.svg') }}" title="Mes clients"/>
+                                <img src="{{ asset('data/images/clients.svg') }}" alt="Clients" title="Mes clients"/>
                                 Mes clients</a>
                         </li>
                         <li>
                             <a href="{{ route('user.index') }}" title="Mon compte" class="account">
-                                <img src="{{ asset('data/images/user.svg') }}" title="Mon compte"/>
+                                <img src="{{ asset('data/images/user.svg') }}" alt="Account" title="Mon compte"/>
                                 Mon compte</a>
                         </li>
                     </div>

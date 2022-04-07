@@ -12,7 +12,7 @@ class ClientController extends Controller
 {
     public function index()
     {
-        return view('clients.index');
+        return view('clients.index', ['clients' => Client::all()]);
     }
 
     public function create()
@@ -33,7 +33,7 @@ class ClientController extends Controller
         ]);
         $client = Client::create($input);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('clients.index');
     }
 
     public function show(Client $client)
@@ -41,12 +41,10 @@ class ClientController extends Controller
         return view('clients.show', ['client' => $client]);
     }
 
-
     public function edit(Client $client)
     {
         return view('clients.edit', ['client' => $client]);
     }
-
 
     public function update(UpdateClientRequest $request, Client $client)
     {
@@ -67,13 +65,8 @@ class ClientController extends Controller
 
     public function destroy(Client $client)
     {
+        $client->delete();
 
-        if (Auth::user() == $client){
-            $client->delete();
-        } else {
-            return redirect()->back()->with('not-allowed', 'Vous ne pouvez pas supprimer cet utilisateur');
-        }
-
-        return redirect()->route('dashboard');
+        return redirect()->route('clients.index');
     }
 }

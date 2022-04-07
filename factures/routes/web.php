@@ -30,9 +30,14 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout');
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard')->middleware('user');
 
 Route::get('/account', [UserController::class, 'index'])->name('user.index');
-Route::get('/account/edit', [UserController::class, 'edit'])->name('user.edit');
-Route::put('/account/edit', [UserController::class, 'update'])->name('user.update');
+Route::get('/account/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
+Route::put('/account/edit/{user}', [UserController::class, 'update'])->name('user.update');
 
 Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
+Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
+Route::post('/clients/create', [ClientController::class, 'store'])->name('clients.store');
+Route::get('/clients/edit/{client}', [ClientController::class, 'edit'])->name('clients.edit');
+Route::put('/clients/edit/{client}', [ClientController::class, 'update'])->name('clients.update');
+Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
 
 Route::get('/missions', [MissionController::class, 'create'])->name('missions.create')->middleware('user');

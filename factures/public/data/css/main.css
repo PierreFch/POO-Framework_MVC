@@ -10,6 +10,14 @@
   border-radius: 0.25rem;
 }
 
+.invalid {
+  display: inline-block;
+  background-color: #F8D7DA;
+  color: #721C24;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.25rem;
+}
+
 body {
   margin: 0;
   font-family: "Nunito", sans-serif;
@@ -47,14 +55,6 @@ a.login {
   color: #FFF;
   padding: 10px 20px;
 }
-a.button {
-  background-color: #724e91;
-  color: #FFF;
-  padding: 10px 20px;
-}
-a.button:hover {
-  background-color: #7F5F9B;
-}
 a.back {
   color: #724e91;
   font-weight: 600;
@@ -68,6 +68,24 @@ a.back img {
 }
 a.back:hover img {
   transform: translateX(-5px);
+}
+
+.button {
+  background-color: #724e91;
+  color: #FFF;
+  padding: 10px 20px;
+}
+.button:hover {
+  background-color: #7F5F9B;
+}
+.button.pink {
+  background-color: #e54f6d;
+}
+.button.danger {
+  background-color: #CC0000;
+}
+.button.blue {
+  background-color: #007bff;
 }
 
 form input, form textarea {
@@ -93,9 +111,28 @@ form div.bottom {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+form div.invalid {
+  width: 100%;
+}
 
 .divPage {
   margin-bottom: 3rem;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+table th {
+  text-align: left;
+}
+table th, table td {
+  padding: 0.5rem;
+}
+table tbody tr:nth-of-type(2n) {
+  background-color: #EBEBEB;
 }
 
 header {
@@ -110,7 +147,7 @@ header .banner {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-header .banner .button {
+header .banner .logout {
   margin-left: auto;
 }
 

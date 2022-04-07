@@ -28,7 +28,7 @@ class UpdateUserRequest extends FormRequest
             'contact_email' => ['required', 'email', 'max:191'],
             'phone' => ['required', 'string', 'max:191'],
             'company_address' => ['required', 'string', 'max:191'],
-            'company_siret' => ['required', 'string', 'max:191', 'unique:users'],
+            'company_siret' => ['required', 'string', 'max:191'],
             'company_ape' => ['required', 'string', 'max:191'],
             'bank_incumbent' => ['required', 'string', 'max:191'],
             'bank_domiciliation' => ['required', 'string', 'max:191'],
