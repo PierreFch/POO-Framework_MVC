@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DevisController;
+use App\Http\Controllers\MissionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +18,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');;
+
+Route::get('/', [LoginController::class, 'index'])->name('index');
 
 
-Route::get('/login', [LoginController::class, 'redirect'])->name('auth.login');
-Route::get('/callback', [LoginController::class, 'callback'])->name('auth.register');
-Route::post('/register', [LoginController::class, 'registration'])->name('auth.registration');
-Route::get('/logout', [LoginController::class, 'logout'])->name('auth.logout');
-Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+Route::get('/login', [LoginController::class, 'redirect'])->name('user.login');
+Route::get('/callback', [LoginController::class, 'callback'])->name('user.register');
+Route::post('/register', [LoginController::class, 'registration'])->name('user.registration');
+Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout');
+Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard')->middleware('user');
+
+Route::get('/account', [UserController::class, 'index'])->name('user.index');
+Route::get('/account/edit', [UserController::class, 'edit'])->name('user.edit');
+
+Route::get('/missions', [MissionController::class, 'create'])->name('missions.create')->middleware('user');

@@ -10,6 +10,14 @@ use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
+    public function index()
+    {
+        if (Auth::user()){
+            return redirect(route('dashboard'));
+        }
+        return view('welcome');
+    }
+
     public function redirect()
     {
         return Socialite::driver('github')->redirect();
@@ -25,7 +33,7 @@ class LoginController extends Controller
             return redirect(route('dashboard'))->with('status', 'Vous êtes connecté !');
         }
 
-        return view('auth.register',
+        return view('user.register',
             [
                 'github_id' => $githubUser->id,
                 'name' => $githubUser->name,

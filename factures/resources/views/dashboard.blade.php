@@ -6,18 +6,27 @@
             <h2>Choisissez un modèle :</h2>
             <nav>
                 <ul>
-                    <li>
-                        <a href="" title="Devis">Devis</a>
-                    </li>
-                    <li>
-                        <a href="" title="Facture accompte">Facture accompte</a>
-                    </li>
-                    <li>
-                        <a href="" title="Facture sans devis">Facture sans devis</a>
-                    </li>
-                    <li>
-                        <a href="" title="Facture solde">Facture solde</a>
-                    </li>
+                    <div class="top">
+                        <li>
+                            <a href="{{ route('missions.create') }}" title="Devis">Devis</a>
+                        </li>
+                        <li>
+                            <a href="" title="Facture accompte">Facture accompte</a>
+                        </li>
+                        <li>
+                            <a href="" title="Facture sans devis">Facture sans devis</a>
+                        </li>
+                        <li>
+                            <a href="" title="Facture solde">Facture solde</a>
+                        </li>
+                    </div>
+                    <div class="bottom">
+                        <li>
+                            <a href="{{ route('user.index') }}" title="Mon compte" class="account">
+                                <img src="{{ asset('data/images/user.png') }}" title="Mon compte"/>
+                                Mon compte</a>
+                        </li>
+                    </div>
                 </ul>
             </nav>
         </div>

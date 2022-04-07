@@ -66,10 +66,54 @@ a {
         @include button($primary);
     }
 
-    &.logout{
+    &.button{
         @include button($submit);
         &:hover{
             background-color: $lightSubmit;
+        }
+    }
+    &.back{
+        color: $submit;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        img{
+            max-width: 30px;
+            margin-right: 10px;
+        }
+        &:hover{
+            img{
+                transform: translateX(-5px);
+            }
+        }
+    }
+    &.account{
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        img{
+            margin-right: 10px;
+        }
+    }
+}
+
+form {
+    input, textarea {
+        font-family: $font;
+        font-size: 1rem;
+        padding: 8px 10px;
+        width: 100%;
+        margin: 5px 0;
+    }
+    a.submit, input[type = "submit"]{
+        border: 0;
+        background-color: $submit;
+        color: #FFF;
+        padding: 10px 20px;
+        cursor: pointer;
+        &:hover{
+            opacity: .9;
         }
     }
 }
@@ -81,7 +125,9 @@ a {
 // Header
 header{
     padding: 1rem;
-    background-color: #FFF;
+    padding-left: 2rem;
+    background-color: $bgLight;
+    margin-left: 30%; //Div left in dashboard width
     .banner{
         display: flex;
         align-items: center;
@@ -103,25 +149,6 @@ div.divWelcome {
 
 // Register
 div.divRegister {
-    form {
-        input, textarea {
-            font-family: $font;
-            font-size: 1rem;
-            padding: 8px 10px;
-            width: 100%;
-            margin: 5px 0;
-        }
-        input[type = "submit"]{
-            border: 0;
-            background-color: $submit;
-            color: #FFF;
-            padding: 10px 20px;
-            cursor: pointer;
-            &:hover{
-                opacity: .9;
-            }
-        }
-    }
     div.bottom{
         display: flex;
         align-items: flex-start;
@@ -146,16 +173,30 @@ div.divDashboard{
         h2{
             font-size: 2rem;
         }
-        ul{padding-left: 0}
-        li{
-            list-style: none;
-            a{
-                padding: 1.25rem 1.5rem;
-                color: #FFF;
-                width: 100%;
-                &:hover{
-                    background-color: $lightSubmit;
+        nav{
+            height: 100%;
+            ul{
+                padding-left: 0;
+                height: 90%;
+                display: flex;
+                flex-wrap: wrap;
+                li{
+                    list-style: none;
+                    a{
+                        padding: 1.25rem 1.5rem;
+                        color: #FFF;
+                        width: 100%;
+                        &:hover{
+                            background-color: $lightSubmit;
+                        }
+                    }
                 }
+            }
+            div.top, div.bottom{
+                width: 100%;
+            }
+            div.bottom{
+                align-self: end;
             }
         }
     }

@@ -47,13 +47,53 @@ a.login {
   color: #FFF;
   padding: 10px 20px;
 }
-a.logout {
+a.button {
   background-color: #724e91;
   color: #FFF;
   padding: 10px 20px;
 }
-a.logout:hover {
+a.button:hover {
   background-color: #7F5F9B;
+}
+a.back {
+  color: #724e91;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+a.back img {
+  max-width: 30px;
+  margin-right: 10px;
+}
+a.back:hover img {
+  transform: translateX(-5px);
+}
+a.account {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+a.account img {
+  margin-right: 10px;
+}
+
+form input, form textarea {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  padding: 8px 10px;
+  width: 100%;
+  margin: 5px 0;
+}
+form a.submit, form input[type=submit] {
+  border: 0;
+  background-color: #724e91;
+  color: #FFF;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+form a.submit:hover, form input[type=submit]:hover {
+  opacity: 0.9;
 }
 
 .divPage {
@@ -62,7 +102,9 @@ a.logout:hover {
 
 header {
   padding: 1rem;
-  background-color: #FFF;
+  padding-left: 2rem;
+  background-color: #F5F5F5;
+  margin-left: 30%;
 }
 header .banner {
   display: flex;
@@ -81,23 +123,6 @@ div.divWelcome {
   justify-content: center;
 }
 
-div.divRegister form input, div.divRegister form textarea {
-  font-family: "Nunito", sans-serif;
-  font-size: 1rem;
-  padding: 8px 10px;
-  width: 100%;
-  margin: 5px 0;
-}
-div.divRegister form input[type=submit] {
-  border: 0;
-  background-color: #724e91;
-  color: #FFF;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-div.divRegister form input[type=submit]:hover {
-  opacity: 0.9;
-}
 div.divRegister div.bottom {
   display: flex;
   align-items: flex-start;
@@ -122,19 +147,31 @@ div.divDashboard div.left {
 div.divDashboard div.left h2 {
   font-size: 2rem;
 }
-div.divDashboard div.left ul {
-  padding-left: 0;
+div.divDashboard div.left nav {
+  height: 100%;
 }
-div.divDashboard div.left li {
+div.divDashboard div.left nav ul {
+  padding-left: 0;
+  height: 90%;
+  display: flex;
+  flex-wrap: wrap;
+}
+div.divDashboard div.left nav ul li {
   list-style: none;
 }
-div.divDashboard div.left li a {
+div.divDashboard div.left nav ul li a {
   padding: 1.25rem 1.5rem;
   color: #FFF;
   width: 100%;
 }
-div.divDashboard div.left li a:hover {
+div.divDashboard div.left nav ul li a:hover {
   background-color: #7F5F9B;
+}
+div.divDashboard div.left nav div.top, div.divDashboard div.left nav div.bottom {
+  width: 100%;
+}
+div.divDashboard div.left nav div.bottom {
+  align-self: end;
 }
 div.divDashboard div.right {
   margin-left: 30%;

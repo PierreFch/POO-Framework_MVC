@@ -24,7 +24,7 @@
                 </div>
             @endif
             <div class="button">
-                <a href="{{route('auth.logout')}}" title="Se déconnecter" class="logout">Se déconnecter</a>
+                <a href="{{ route('user.logout') }}" title="Se déconnecter" class="button">Se déconnecter</a>
             </div>
 
         </div>
