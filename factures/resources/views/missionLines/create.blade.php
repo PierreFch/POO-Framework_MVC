@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="divPage divMissionLine create">
+    <div class="divPage divMissionLines create">
         <h1>Ajouter une ligne de mission</h1>
         <h2>{{ $mission->title }}</h2>
 
