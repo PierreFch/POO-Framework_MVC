@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('reference');
             $table->integer('client_id');
-            $table->float('advance');
+            $table->integer('advance');
         });
     }
 

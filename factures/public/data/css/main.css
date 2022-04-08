@@ -144,10 +144,34 @@ table th {
   text-align: left;
 }
 table th, table td {
-  padding: 0.5rem;
+  padding: 1rem 0.5rem;
 }
 table tbody tr:nth-of-type(2n) {
   background-color: #EBEBEB;
+}
+table tbody td:not(.edit), table tbody td:not(.delete) {
+  transition-duration: 200ms;
+}
+table tbody td:not(.edit):hover, table tbody td:not(.delete):hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+table tr {
+  position: relative;
+}
+table tr .showmore {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+table tr .showmore a {
+  width: 100%;
+  height: 100%;
+}
+table tr .delete, table tr .edit {
+  position: relative;
+  z-index: 1;
 }
 
 header {
@@ -166,18 +190,11 @@ header .banner .logout {
   margin-left: auto;
 }
 
-div.divWelcome {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-div.divDashboard {
+div.Page {
   height: 100vh;
 }
-div.divDashboard div.left {
-  width: 30%;
+div.Page > div.left {
+  width: 20%;
   height: 100%;
   box-shadow: 7px 0 5px 0 #EBEBEB;
   position: fixed;
@@ -187,53 +204,63 @@ div.divDashboard div.left {
   color: #FFF;
   background-color: #724e91;
 }
-div.divDashboard div.left h2 {
-  font-size: 2rem;
-}
-div.divDashboard div.left nav {
+div.Page > div.left nav {
   height: 100%;
+  padding: 1rem 0;
 }
-div.divDashboard div.left nav ul {
+div.Page > div.left nav ul {
   padding-left: 0;
-  height: 90%;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
 }
-div.divDashboard div.left nav ul li {
+div.Page > div.left nav ul div.top, div.Page > div.left nav ul div.bottom {
+  width: 100%;
+}
+div.Page > div.left nav ul div.bottom {
+  align-self: end;
+}
+div.Page > div.left nav ul li {
   list-style: none;
 }
-div.divDashboard div.left nav ul li a {
+div.Page > div.left nav ul li a {
   padding: 1.25rem 1.5rem;
   color: #FFF;
   width: 100%;
-}
-div.divDashboard div.left nav ul li a:hover {
-  background-color: #7F5F9B;
-}
-div.divDashboard div.left nav div.top, div.divDashboard div.left nav div.bottom {
-  width: 100%;
-}
-div.divDashboard div.left nav div.bottom {
-  align-self: end;
-}
-div.divDashboard div.left nav div.bottom a {
   display: inline-flex;
   align-items: center;
 }
-div.divDashboard div.left nav div.bottom a img {
+div.Page > div.left nav ul li a:hover {
+  background-color: #7F5F9B;
+}
+div.Page > div.left nav ul li a img {
   margin-right: 10px;
-}
-div.divDashboard div.left nav div.bottom a.account {
-  margin-bottom: 1rem;
-}
-div.divDashboard div.left nav div.bottom img {
   width: 25px;
 }
-div.divDashboard div.right {
-  margin-left: 30%;
+div.Page > div.right {
+  margin-left: 20%;
+  width: 80%;
 }
-div.divDashboard div.right section {
+div.Page > div.right section {
   margin: 2rem 0;
+}
+
+div.divWelcome {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.divDashboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+div.divDashboard h1 {
+  text-align: center;
+  font-size: 3rem;
 }
 
 div.divAccount div.columns {
@@ -262,6 +289,27 @@ div.divAccount div.columns > div > div {
 div.divAccount div.bottom form input {
   width: auto;
   margin: 0.5rem 0;
+}
+
+div.divClients.show form input {
+  width: auto;
+}
+div.divClients.show div.bottom {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+div.divClients.show div.bottom a {
+  margin-right: 1rem;
+}
+
+div.divMissions form div.text, div.divMissions form div.email, div.divMissions form div.phone {
+  width: 100%;
+}
+div.divMissions form div:nth-of-type(2n) {
+  margin-left: 0;
+  float: none;
 }
 
 /*# sourceMappingURL=main.css.map */

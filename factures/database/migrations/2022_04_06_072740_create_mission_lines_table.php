@@ -18,8 +18,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
             $table->integer('quantity');
-            $table->float('unit_price');
-            $table->float('total_ttc');
+            $table->integer('unit_price');
+            $table->integer('total_ttc');
             $table->integer('mission_id');
         });
     }

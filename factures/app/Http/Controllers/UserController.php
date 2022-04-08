@@ -38,7 +38,7 @@ class UserController extends Controller
 
         $user->update($input);
 
-        return redirect()->route('users.index');
+        return redirect(route('users.index'));
     }
 
     public function destroy(Client $client)

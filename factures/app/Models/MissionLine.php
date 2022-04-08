@@ -2,15 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
-class Client extends Authenticatable
+class MissionLine extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -18,13 +15,11 @@ class Client extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'reference',
-        'user_id',
-        'name',
-        'email',
-        'phone',
-        'company_siret',
-        'company_address'
+        'title',
+        'quantity',
+        'unit_price',
+        'total_ttc',
+        'mission_id',
     ];
 
     /**
@@ -46,13 +41,8 @@ class Client extends Authenticatable
         //
     ];
 
-    public function user()
+    public function mission()
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function missions()
-    {
-        return $this->hasMany(Mission::class);
+        return $this->belongsTo(Mission::class);
     }
 }

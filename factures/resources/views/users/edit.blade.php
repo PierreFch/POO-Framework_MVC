@@ -2,10 +2,6 @@
 
 @section('content')
     <div class="divPage divAccount edit">
-        <a href="{{ route('users.index') }}" title="Retour en arrière" class="back">
-            <img src="{{ asset('data/images/back.png') }}" alt="Compte" title="Retour en arrière"/>
-            Retour en arrière
-        </a>
         <h1>Modifier mon compte</h1>
 
         <form action="{{route('users.update', $user)}}" method="POST" class="account">

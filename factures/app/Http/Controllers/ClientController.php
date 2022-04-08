@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
 use App\Models\Client;
+use App\Models\Mission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +23,7 @@ class ClientController extends Controller
 
     public function store(StoreClientRequest $request)
     {
-        $input = $request->only([
+        $input = $request->safe()->only([
             'reference',
             'user_id',
             'name',
@@ -33,7 +34,7 @@ class ClientController extends Controller
         ]);
         $client = Client::create($input);
 
-        return redirect()->route('clients.index');
+        return redirect(route('clients.index'));
     }
 
     public function show(Client $client)
@@ -59,7 +60,7 @@ class ClientController extends Controller
 
         $client->update($input);
 
-        return redirect()->route('clients.index');
+        return redirect(route('clients.show', $client));
     }
 
     public function destroy(Client $client)

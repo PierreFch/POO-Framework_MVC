@@ -1,0 +1,62 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\MissionLineRequest;
+use App\Models\Mission;
+use App\Models\MissionLine;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class MissionLinesController extends Controller
+{
+
+    public function index(Mission $mission)
+    {
+        return view("missionLines.index", ['mission' => $mission]);
+    }
+
+    public function create(Mission $mission)
+    {
+        return view("missionLines.create", ['mission' => $mission]);
+    }
+
+    public function store(MissionLineRequest $request, Mission $mission)
+    {
+        $input = $request->safe()->only([
+            'title',
+            'quantity',
+            'unit_price',
+            'total_ttc',
+        ]);
+        $mission_line = $mission->missionLines()->create($input);
+        return redirect(route('missions.index', $mission->client))->with('success', "Nouvelle ligne de mission créée !");
+    }
+
+    public function edit(MissionLine $missionLine)
+    {
+        return view('missionLines.edit', ['missionLine' => $missionLine]);
+    }
+
+    public function update(MissionLineRequest $request, MissionLine $missionLine)
+    {
+        $input = $request->safe()->only([
+            'title',
+            'quantity',
+            'unit_price',
+            'total_ttc',
+        ]);
+        $missionLine->update($input);
+        return redirect(route('missions.index', $missionLine->mission->client))->with('success', "Ligne de mission mise à jour !");
+    }
+
+    public function destroy(MissionLine $missionLine)
+    {
+        if (Auth::user() == $missionLine->mission->client->user)
+        {
+            $missionLine->delete();
+            return redirect(route('missions.index', $missionLine->mission->client))->with('success', 'Ligne de mission supprimée !');
+        }
+        return redirect(route('missions.index', $missionLine->mission->client))->with('error', "Vous ne pouvez pas supprimer cette ligne de mission.");
+    }
+}

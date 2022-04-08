@@ -2,10 +2,6 @@
 
 @section('content')
     <div class="divPage divClients edit">
-        <a href="{{ route('clients.index') }}" title="Retour en arrière" class="back">
-            <img src="{{ asset('data/images/back.png') }}" alt="Back" title="Retour en arrière"/>
-            Retour en arrière
-        </a>
         <h1>Modifier : {{ $client->name }}</h1>
 
         <form action="{{ route('clients.update', $client) }}" method="POST">

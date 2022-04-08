@@ -43,8 +43,36 @@
             {{ session('not-allowed') }}
         </div>
     @endif
-
-    @yield('content')
+    <div class="Page">
+        @if(Auth::user())
+            <div class="left">
+                <nav>
+                    <ul>
+                        <div class="top">
+                            <li>
+                                <a href="{{ route('clients.index') }}" title="Mes clients">
+                                    <img src="{{ asset('data/images/clients.svg') }}" alt="Clients"
+                                         title="Mes clients"/>
+                                    Mes clients</a>
+                            </li>
+                        </div>
+                        <div class="bottom">
+                            <li>
+                                <a href="{{ route('users.index') }}" title="Mon compte" class="account">
+                                    <img src="{{ asset('data/images/user.svg') }}" alt="Account" title="Mon compte"/>
+                                    Mon compte</a>
+                            </li>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+            <div class="right">
+                @yield('content')
+            </div>
+            @else
+                @yield('content')
+        @endif
+    </div>
 
 </div>
 

@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Client extends Authenticatable
+class Mission extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -18,13 +18,10 @@ class Client extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'title',
         'reference',
-        'user_id',
-        'name',
-        'email',
-        'phone',
-        'company_siret',
-        'company_address'
+        'client_id',
+        'advance'
     ];
 
     /**
@@ -46,13 +43,13 @@ class Client extends Authenticatable
         //
     ];
 
-    public function user()
+    public function client()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Client::class);
     }
 
-    public function missions()
+    public function missionLines()
     {
-        return $this->hasMany(Mission::class);
+        return $this->hasMany(MissionLine::class);
     }
 }
