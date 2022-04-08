@@ -27,7 +27,7 @@
                     <td>{{ $client->phone }}</td>
                     <td>{{ $client->company_siret }}</td>
                     <td>{{ $client->company_address }}</td>
-                    <td class="showmore"><a href="{{ route('clients.show', $client) }}"></a></td>
+                    <td class="showmore"><a href="{{ route('clients.show', $client) }}" title="En voir plus sur {{ $client->name }}."></a></td>
                 </tr>
             @endforeach
             </tbody>

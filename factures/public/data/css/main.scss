@@ -41,6 +41,10 @@ $font: 'Nunito', sans-serif;
     font-weight: bold;
 }
 
+.accent{
+    color: $information;
+}
+
 .success{
     @include alert();
 }
@@ -161,8 +165,35 @@ form {
     }
 }
 
-.divPage{
-    margin-bottom: 3rem;
+// divPage
+div.divPage{
+    &.show{
+        div.bottom{
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            a{
+                margin-right: 1rem;
+            }
+        }
+        div.list{
+            margin-top: 2rem;
+            padding: 1rem;
+            border: 1px solid rgba(#000, .1);
+            h2, table{
+                margin: 0;
+            }
+            div.add{
+                margin: 1rem 0;
+            }
+        }
+        div.data{
+            > div, div.left > div, div.right > div{
+                margin: .5rem 0;
+            }
+        }
+    }
 }
 
 table{
@@ -177,7 +208,7 @@ table{
         padding: 1rem .5rem;
     }
     tbody{
-        tr:nth-of-type(2n){
+        tr:nth-of-type(2n+1){
             background-color: $bgLightGrey;
         }
         td{
@@ -197,6 +228,7 @@ table{
             height: 100%;
             top: 0;
             left: 0;
+            padding: 0;
             a{
                 width: 100%;
                 height: 100%;
@@ -229,6 +261,11 @@ header{
 // Page
 div.Page{
     height: 100vh;
+    > div.data{
+        form input{
+            width: auto;
+        }
+    }
     > div.left{
         width: 20%;
         height: 100%;
@@ -327,24 +364,6 @@ div.divAccount{
     }
 }
 
-// Clients
-div.divClients{
-    &.show{
-        form input{
-            width: auto;
-        }
-        div.bottom{
-            margin: 1rem 0;
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            a{
-                margin-right: 1rem;
-            }
-        }
-    }
-}
-
 // Missions
 div.divMissions{
     form{
@@ -354,6 +373,11 @@ div.divMissions{
         div:nth-of-type(2n){
             margin-left: 0;
             float: none;
+        }
+    }
+    &.show{
+        td:hover{
+            background-color: transparent;
         }
     }
 }

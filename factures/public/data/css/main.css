@@ -6,6 +6,10 @@
   font-weight: bold;
 }
 
+.accent {
+  color: #e54f6d;
+}
+
 .success {
   display: inline-block;
   background-color: #d4edda;
@@ -130,8 +134,28 @@ form div.invalid {
   width: 100%;
 }
 
-.divPage {
-  margin-bottom: 3rem;
+div.divPage.show div.bottom {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+div.divPage.show div.bottom a {
+  margin-right: 1rem;
+}
+div.divPage.show div.list {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+div.divPage.show div.list h2, div.divPage.show div.list table {
+  margin: 0;
+}
+div.divPage.show div.list div.add {
+  margin: 1rem 0;
+}
+div.divPage.show div.data > div, div.divPage.show div.data div.left > div, div.divPage.show div.data div.right > div {
+  margin: 0.5rem 0;
 }
 
 table {
@@ -146,7 +170,7 @@ table th {
 table th, table td {
   padding: 1rem 0.5rem;
 }
-table tbody tr:nth-of-type(2n) {
+table tbody tr:nth-of-type(2n+1) {
   background-color: #EBEBEB;
 }
 table tbody td:not(.edit), table tbody td:not(.delete) {
@@ -164,6 +188,7 @@ table tr .showmore {
   height: 100%;
   top: 0;
   left: 0;
+  padding: 0;
 }
 table tr .showmore a {
   width: 100%;
@@ -192,6 +217,9 @@ header .banner .logout {
 
 div.Page {
   height: 100vh;
+}
+div.Page > div.data form input {
+  width: auto;
 }
 div.Page > div.left {
   width: 20%;
@@ -291,25 +319,15 @@ div.divAccount div.bottom form input {
   margin: 0.5rem 0;
 }
 
-div.divClients.show form input {
-  width: auto;
-}
-div.divClients.show div.bottom {
-  margin: 1rem 0;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-div.divClients.show div.bottom a {
-  margin-right: 1rem;
-}
-
 div.divMissions form div.text, div.divMissions form div.email, div.divMissions form div.phone {
   width: 100%;
 }
 div.divMissions form div:nth-of-type(2n) {
   margin-left: 0;
   float: none;
+}
+div.divMissions.show td:hover {
+  background-color: transparent;
 }
 
 /*# sourceMappingURL=main.css.map */

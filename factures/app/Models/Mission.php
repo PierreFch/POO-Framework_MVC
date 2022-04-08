@@ -43,6 +43,11 @@ class Mission extends Authenticatable
         //
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function client()
     {
         return $this->belongsTo(Client::class);
@@ -52,4 +57,5 @@ class Mission extends Authenticatable
     {
         return $this->hasMany(MissionLine::class);
     }
+
 }

@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Client::class);
     }
+
+    public function missions()
+    {
+        return $this->hasMany(Mission::class);
+    }
 }

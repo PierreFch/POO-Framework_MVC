@@ -10,12 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class MissionLinesController extends Controller
 {
-
-    public function index(Mission $mission)
-    {
-        return view("missionLines.index", ['mission' => $mission]);
-    }
-
     public function create(Mission $mission)
     {
         return view("missionLines.create", ['mission' => $mission]);
@@ -30,7 +24,7 @@ class MissionLinesController extends Controller
             'total_ttc',
         ]);
         $mission_line = $mission->missionLines()->create($input);
-        return redirect(route('missions.index', $mission->client))->with('success', "Nouvelle ligne de mission créée !");
+        return redirect(route('missions.show', $mission))->with('success', "Nouvelle ligne de mission créée !");
     }
 
     public function edit(MissionLine $missionLine)

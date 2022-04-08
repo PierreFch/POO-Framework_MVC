@@ -2,8 +2,7 @@
 
 @section('content')
     <div class="divPage divMissionLines create">
-        <h1>Ajouter une ligne de mission</h1>
-        <h2>{{ $mission->title }}</h2>
+        <h1>Ajouter une ligne de mission : <span class="accent">{{ $mission->title }}</span></h1>
 
         <form action="{{ route('missionLines.store', $mission) }}" method="POST">
             @csrf
@@ -27,18 +26,13 @@
                 @error ('unit_price')
                 <div class="invalid"> {{ $message }}</div>
                 @enderror
-            </div>
-            <div class="text">
-                <label for="total-ttc">Total TTC : </label>
-                <input type="text" value="{{ $missionLine->quantity * $missionLine->unit_price }}" placeholder="Total TTC" id="total-ttc" name="total_ttc">
-                @error ('total_ttc')
-                <div class="invalid"> {{ $message }}</div>
-                @enderror
+                <div class="submit">
+                    <input type="submit" value="Ajouter la ligne de mission">
+                </div>
             </div>
 
-            <div class="submit">
-                <input type="submit" value="Ajouter la ligne de mission">
-            </div>
+            <input type="hidden" value="{{ $mission_line->quantity * $mission_line->unit_price }}" placeholder="Total TTC" id="total-ttc" name="total_ttc">
+
         </form>
     </div>
 @endsection
