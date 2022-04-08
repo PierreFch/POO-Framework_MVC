@@ -36,7 +36,13 @@
 
         <div class="list">
             <h2>Liste des missions</h2>
-
+            @foreach($client->missions as $mission)
+                <tr>
+                    <td><span class="bold">Titre :</span> {{ $mission->title }}</td>
+                    <td><span class="bold">Référence :</span> {{ $mission->reference }}</td>
+                    <td><span class="bold">Acompte :</span> {{ $mission->advance }}</td>
+                </tr>
+            @endforeach
         </div>
     </div>
 @endsection

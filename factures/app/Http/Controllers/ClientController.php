@@ -37,9 +37,9 @@ class ClientController extends Controller
         return redirect(route('clients.index'));
     }
 
-    public function show(Client $client)
+    public function show(Client $client, Mission $mission)
     {
-        return view('clients.show', ['client' => $client]);
+        return view('clients.show', ['client' => $client], ['mission' => $mission]);
     }
 
     public function edit(Client $client)
