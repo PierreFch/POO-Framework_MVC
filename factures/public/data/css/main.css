@@ -92,6 +92,17 @@ a.back:hover img {
   background-color: #007bff;
 }
 
+form > div, form div.top > div, form div.bottom > div {
+  margin: 0.5rem 0;
+}
+form:not(.account) > div.text, form:not(.account) > div.email, form:not(.account) > div.phone, form.account div.top > div.text, form.account div.top > div.email, form.account div.top > div.phone {
+  width: calc(50% - 20px);
+  display: inline-block;
+}
+form:not(.account) > div:nth-of-type(2n), form.account div.top > div:nth-of-type(2n) {
+  float: right;
+  margin-left: 0.5rem;
+}
 form input, form textarea {
   font-family: "Nunito", sans-serif;
   font-size: 1rem;
@@ -247,9 +258,6 @@ div.divAccount div.columns > div {
 }
 div.divAccount div.columns > div > div {
   padding: 0.4rem 0;
-}
-div.divAccount div.bottom {
-  margin: 2rem 0;
 }
 div.divAccount div.bottom form input {
   width: auto;

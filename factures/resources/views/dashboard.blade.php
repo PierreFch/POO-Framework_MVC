@@ -27,7 +27,7 @@
                                 Mes clients</a>
                         </li>
                         <li>
-                            <a href="{{ route('user.index') }}" title="Mon compte" class="account">
+                            <a href="{{ route('users.index') }}" title="Mon compte" class="account">
                                 <img src="{{ asset('data/images/user.svg') }}" alt="Account" title="Mon compte"/>
                                 Mon compte</a>
                         </li>

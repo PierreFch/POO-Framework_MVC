@@ -33,11 +33,11 @@
         </div>
         <div class="bottom">
             <div class="edit">
-                <a href="{{ route('user.edit', $user) }}" title="Modifier mon compte" class="button">Modifier mon
+                <a href="{{ route('users.edit', $user) }}" title="Modifier mon compte" class="button">Modifier mon
                     compte</a>
             </div>
             <div class="delete">
-                <form action="{{ route('user.destroy', $user) }}" method="POST">
+                <form action="{{ route('users.destroy', $user) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <input type="submit" id="destroy" name="destroy" value="Supprimer mon compte"

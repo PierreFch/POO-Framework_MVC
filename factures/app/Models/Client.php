@@ -45,4 +45,9 @@ class Client extends Authenticatable
     protected $casts = [
         //
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

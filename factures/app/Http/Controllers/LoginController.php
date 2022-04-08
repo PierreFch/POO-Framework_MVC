@@ -33,7 +33,7 @@ class LoginController extends Controller
             return redirect(route('dashboard'))->with('success', 'Vous êtes connecté !');
         }
 
-        return view('user.register',
+        return view('users.register',
             [
                 'github_id' => $githubUser->id,
                 'name' => $githubUser->name,

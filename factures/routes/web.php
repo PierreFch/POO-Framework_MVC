@@ -23,16 +23,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LoginController::class, 'index'])->name('index');
 
 
-Route::get('/login', [LoginController::class, 'redirect'])->name('user.login');
-Route::get('/callback', [LoginController::class, 'callback'])->name('user.register');
-Route::post('/register', [LoginController::class, 'registration'])->name('user.registration');
-Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout');
-Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard')->middleware('user');
+Route::get('/login', [LoginController::class, 'redirect'])->name('users.login');
+Route::get('/callback', [LoginController::class, 'callback'])->name('users.register');
+Route::post('/register', [LoginController::class, 'registration'])->name('users.registration');
+Route::get('/logout', [LoginController::class, 'logout'])->name('users.logout');
+Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard')->middleware('users');
 
-Route::get('/account', [UserController::class, 'index'])->name('user.index');
-Route::get('/account/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
-Route::put('/account/edit/{user}', [UserController::class, 'update'])->name('user.update');
-Route::delete('/account/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+Route::get('/account', [UserController::class, 'index'])->name('users.index');
+Route::get('/account/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/account/edit/{user}', [UserController::class, 'update'])->name('users.update');
+Route::delete('/account/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
 Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
 Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
@@ -41,4 +41,4 @@ Route::get('/clients/edit/{client}', [ClientController::class, 'edit'])->name('c
 Route::put('/clients/edit/{client}', [ClientController::class, 'update'])->name('clients.update');
 Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
 
-Route::get('/missions', [MissionController::class, 'create'])->name('missions.create')->middleware('user');
+Route::get('/missions', [MissionController::class, 'create'])->name('missions.create')->middleware('users');

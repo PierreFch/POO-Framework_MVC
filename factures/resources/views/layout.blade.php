@@ -30,7 +30,7 @@
                 </div>
             @endif
             <div class="logout">
-                <a href="{{ route('user.logout') }}" title="Se déconnecter" class="button">Se déconnecter</a>
+                <a href="{{ route('users.logout') }}" title="Se déconnecter" class="button">Se déconnecter</a>
             </div>
 
         </div>

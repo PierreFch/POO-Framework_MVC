@@ -12,12 +12,12 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('user.index', ['user' => Auth::user()]);
+        return view('users.index', ['user' => Auth::user()]);
     }
 
     public function edit(User $user)
     {
-        return view('user.edit', ['user' => $user], ['user' => Auth::user()]);
+        return view('users.edit', ['user' => $user], ['user' => Auth::user()]);
     }
 
     public function update(UpdateUserRequest $request, User $user)
@@ -38,7 +38,7 @@ class UserController extends Controller
 
         $user->update($input);
 
-        return redirect()->route('user.index');
+        return redirect()->route('users.index');
     }
 
     public function destroy(Client $client)
@@ -47,6 +47,6 @@ class UserController extends Controller
             $client->delete();
         }
         Auth::user()->delete();
-        return redirect(route('auth.login'))->with('success', "Votre compte à été supprimé !");
+        return redirect(route('index'))->with('success', "Votre compte à été supprimé !");
     }
 }

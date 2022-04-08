@@ -19,6 +19,6 @@ class UserIsComplete
         if ($user->is_complete){
             return $next($request);
         }
-        return redirect(route('user.register'));
+        return redirect(route('users.register'));
     }
 }
