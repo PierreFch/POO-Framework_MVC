@@ -50,10 +50,7 @@ class MissionController extends Controller
 
     public function destroy(Mission $mission)
     {
-        foreach (Auth::user()->missions as $mission) {
-            $mission->delete();
-        }
-        Auth::user()->delete();
-        return redirect(route('missions.index'))->with('success', "La mission à été supprimé !");
+        $mission->delete();
+        return redirect(route('missions.show'))->with('success', "La mission à été supprimé !");
     }
 }

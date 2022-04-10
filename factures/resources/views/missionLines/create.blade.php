@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <input type="hidden" value="{{ $mission_line->quantity * $mission_line->unit_price }}" placeholder="Total TTC" id="total-ttc" name="total_ttc">
+            <input type="hidden" value="4" placeholder="Total TTC" id="total-ttc" name="total_ttc">
 
         </form>
     </div>

@@ -24,7 +24,7 @@ class MissionLinesController extends Controller
             'total_ttc',
         ]);
         $mission_line = $mission->missionLines()->create($input);
-        return redirect(route('missions.show', $mission))->with('success', "Nouvelle ligne de mission créée !");
+        return redirect(route('missions.show', ['mission' => $mission]))->with('success', "Nouvelle ligne de mission créée !");
     }
 
     public function edit(MissionLine $missionLine)
@@ -41,7 +41,7 @@ class MissionLinesController extends Controller
             'total_ttc',
         ]);
         $missionLine->update($input);
-        return redirect(route('missions.index', $missionLine->mission->client))->with('success', "Ligne de mission mise à jour !");
+        return redirect(route('missions.show', $missionLine->mission))->with('success', "Ligne de mission mise à jour !");
     }
 
     public function destroy(MissionLine $missionLine)
@@ -49,8 +49,8 @@ class MissionLinesController extends Controller
         if (Auth::user() == $missionLine->mission->client->user)
         {
             $missionLine->delete();
-            return redirect(route('missions.index', $missionLine->mission->client))->with('success', 'Ligne de mission supprimée !');
+            return redirect(route('missions.show', $missionLine->mission))->with('success', 'Ligne de mission supprimée !');
         }
-        return redirect(route('missions.index', $missionLine->mission->client))->with('error', "Vous ne pouvez pas supprimer cette ligne de mission.");
+        return redirect(route('missions.show', $missionLine->mission))->with('error', "Vous ne pouvez pas supprimer cette ligne de mission.");
     }
 }

@@ -33,8 +33,23 @@ $font: 'Nunito', sans-serif;
 }
 
 // Bootstrap
+.text-left{
+    text-align: left;
+}
+
 .text-center{
     text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.little{
+    display: block;
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: rgba(#000, .5);
 }
 
 .bold{
@@ -212,12 +227,10 @@ table{
             background-color: $bgLightGrey;
         }
         td{
-            &:not(.edit), &:not(.delete){
-                transition-duration: 200ms;
-                &:hover{
-                    background-color: rgba(#000, .1);
-                }
+            &:hover{
+                background-color: rgba(#000, .1);
             }
+            input{width: auto}
         }
     }
     tr{
@@ -357,6 +370,7 @@ div.divAccount{
         }
     }
     div.bottom{
+        margin-top: 2rem;
         form input{
             width: auto;
             margin: .5rem 0;

@@ -50,11 +50,11 @@ Route::post('/clients/{client}/missions/create', [MissionController::class, 'sto
 Route::get('/missions/{mission}/edit', [MissionController::class, 'edit'])->name('missions.edit');
 Route::put('/missions/{mission}/edit', [MissionController::class, 'update'])->name('missions.update');
 Route::get('/missions/{mission}', [MissionController::class, 'show'])->name('missions.show');
-Route::delete('/missions/{mission}/delete', [MissionController::class, 'destroy'])->name('missions.destroy');
+Route::delete('/missions/{mission}', [MissionController::class, 'destroy'])->name('missions.destroy');
 
 // MISSION LINES
 Route::get('/missions/{mission}/mission_lines/create', [MissionLinesController::class, 'create'])->name('missionLines.create');
 Route::post('/missions/{mission}/mission_lines/create', [MissionLinesController::class, 'store'])->name('missionLines.store');
 Route::get('/mission-lines/{missionLine}/edit', [MissionLinesController::class, 'edit'])->name('missionLines.edit');
 Route::put('/mission-lines/{missionLine}/edit', [MissionLinesController::class, 'update'])->name('missionLines.update');
-Route::delete('/mission-lines/{missionLine}/delete', [MissionLinesController::class, 'destroy'])->name('missionLines.destroy');
+Route::delete('/mission-lines/{missionLine}', [MissionLinesController::class, 'destroy'])->name('missionLines.destroy');

@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="divPage divMissionLines edit">
-        <h1>Modifier une ligne de mission</h1>
-        <h2>{{ $mission->title }}</h2>
+        <h1>Modifier : {{ $missionLine->title }}</h1>
 
-        <form action="{{ route('missionLines.update', $mission) }}" method="POST">
+        <form action="{{ route('missionLines.update', $missionLine) }}" method="POST">
             @csrf
+            @method('PUT')
             <div class="text">
                 <label for="title">Titre : </label>
                 <input type="text" value="{{ $missionLine->title }}" placeholder="Titre" id="title" name="title">
@@ -27,18 +27,13 @@
                 @error ('unit_price')
                 <div class="invalid"> {{ $message }}</div>
                 @enderror
-            </div>
-            <div class="text">
-                <label for="total-ttc">Total TTC : </label>
-                <input type="text" value="{{ $missionLine->quantity * $missionLine->unit_price }}" placeholder="Total TTC" id="total-ttc" name="total_ttc">
-                @error ('total_ttc')
-                <div class="invalid"> {{ $message }}</div>
-                @enderror
+                <div class="submit">
+                    <input type="submit" value="Modifier la ligne de mission">
+                </div>
             </div>
 
-            <div class="submit">
-                <input type="submit" value="Modifier la ligne de mission">
-            </div>
+            <input type="hidden" value="4" placeholder="Total TTC" id="total-ttc" name="total_ttc">
+
         </form>
     </div>
 @endsection

@@ -1,5 +1,20 @@
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.little {
+  display: block;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .bold {
@@ -173,11 +188,11 @@ table th, table td {
 table tbody tr:nth-of-type(2n+1) {
   background-color: #EBEBEB;
 }
-table tbody td:not(.edit), table tbody td:not(.delete) {
-  transition-duration: 200ms;
-}
-table tbody td:not(.edit):hover, table tbody td:not(.delete):hover {
+table tbody td:hover {
   background-color: rgba(0, 0, 0, 0.1);
+}
+table tbody td input {
+  width: auto;
 }
 table tr {
   position: relative;
@@ -313,6 +328,9 @@ div.divAccount div.columns > div {
 }
 div.divAccount div.columns > div > div {
   padding: 0.4rem 0;
+}
+div.divAccount div.bottom {
+  margin-top: 2rem;
 }
 div.divAccount div.bottom form input {
   width: auto;
