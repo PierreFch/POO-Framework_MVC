@@ -45,7 +45,7 @@
                         <td>{{ $missionLine->title }}</td>
                         <td>{{ $missionLine->quantity }}</td>
                         <td>{{ $missionLine->unit_price }} €</td>
-                        <td>{{ number_format((($missionLine->quantity * $missionLine->unit_price) / 1.2) ,2) }} €</td>
+                        <td>{{ number_format(($missionLine->total_ttc / 1.2) ,0) }} €</td>
                         <td class="text-right">
                             <a href="{{ route('missionLines.edit', $missionLine) }}" title="Modifier la ligne de mission"
                                class="button blue">Modifier</a>

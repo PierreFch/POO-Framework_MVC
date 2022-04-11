@@ -32,7 +32,7 @@
                 </div>
             </div>
 
-            <input type="hidden" value="4" placeholder="Total TTC" id="total-ttc" name="total_ttc">
+            <input type="hidden" value="{{ $missionLine->total_ttc }}" placeholder="Total TTC" id="total-ttc" name="total_ttc">
 
         </form>
     </div>

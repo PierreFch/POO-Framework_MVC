@@ -15,14 +15,14 @@
             </div>
             <div class="text">
                 <label for="quantity">Quantité : </label>
-                <input type="number" value="{{ old('quantity') }}" placeholder="Quantité" id="quantity" name="quantity">
+                <input type="number" value="{{ $quantity = old('quantity') }}" placeholder="Quantité" id="quantity" name="quantity">
                 @error ('quantity')
                 <div class="invalid"> {{ $message }}</div>
                 @enderror
             </div>
             <div class="text">
                 <label for="unit-price">Prix unitaire : </label>
-                <input type="text" value="{{ old('unit_price') }}" placeholder="Prix unitaire" id="unit-price" name="unit_price">
+                <input type="text" value="{{ $unitPrice = old('unit_price') }}" placeholder="Prix unitaire" id="unit-price" name="unit_price">
                 @error ('unit_price')
                 <div class="invalid"> {{ $message }}</div>
                 @enderror
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <input type="hidden" value="4" placeholder="Total TTC" id="total-ttc" name="total_ttc">
+            <input type="hidden" value="{{ $quantity * $unitPrice }}" placeholder="Total TTC" id="total-ttc" name="total_ttc">
 
         </form>
     </div>

@@ -27,7 +27,6 @@ class MissionLineRequest extends FormRequest
             'title' => ['required', 'string', 'max:191'],
             'quantity' => ['required', 'integer', 'max:191'],
             'unit_price' => ['required', 'integer', 'min: 0'],
-            'total_ttc' => ['required', 'integer', 'min: 0'],
         ];
     }
 }

@@ -21,8 +21,10 @@ class MissionLinesController extends Controller
             'title',
             'quantity',
             'unit_price',
-            'total_ttc',
         ]);
+
+        $totalTtc = $input['quantity'] * $input['unit_price'] ;
+        $input['total_ttc'] = $totalTtc; // Push value with key in input array
         $mission_line = $mission->missionLines()->create($input);
         return redirect(route('missions.show', ['mission' => $mission]))->with('success', "Nouvelle ligne de mission créée !");
     }
@@ -37,9 +39,11 @@ class MissionLinesController extends Controller
         $input = $request->safe()->only([
             'title',
             'quantity',
-            'unit_price',
-            'total_ttc',
+            'unit_price'
         ]);
+
+        $totalTtc = $input['quantity'] * $input['unit_price'] ;
+        $input['total_ttc'] = $totalTtc; // Push value with key in input array
         $missionLine->update($input);
         return redirect(route('missions.show', $missionLine->mission))->with('success', "Ligne de mission mise à jour !");
     }
