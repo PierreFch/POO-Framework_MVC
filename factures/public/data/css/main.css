@@ -41,6 +41,19 @@
   border-radius: 0.25rem;
 }
 
+.empty {
+  color: #383D41;
+  background-color: #E2E3E5;
+  padding: 1rem;
+  margin: 1rem 2rem;
+}
+.empty div.add {
+  margin: 0.5rem 0 !important;
+}
+.empty div.picture {
+  margin-top: 0.5rem;
+}
+
 body {
   margin: 0;
   font-family: "Nunito", sans-serif;

@@ -27,41 +27,52 @@
         <div class="list">
             <h2>Liste des lignes de mission</h2>
             <div class="add">
-                <a href="{{ route('missionLines.create', $mission) }}" title="Ajouter une ligne de mission" class="button pink">Ajouter
+                <a href="{{ route('missionLines.create', $mission) }}" title="Ajouter une ligne de mission"
+                   class="button pink">Ajouter
                     une ligne de mission</a>
             </div>
-            <table>
-                <thead>
-                <tr>
-                    <th>Titre</th>
-                    <th>Quantité</th>
-                    <th>Prix unitaire</th>
-                    <th>Total TTC <span class="little">TVA 20%</span></th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($mission->missionLines as $missionLine)
+            @if(count($mission->missionLines) < 1)
+                <div class="empty text-center">
+                    Aucune ligne de mission trouvée.
+                    <div class="picture">
+                        <img src="{{ asset('data/images/empty.png') }}" alt="Vide" title="Aucune ligne de mission trouvée."/>
+                    </div>
+                </div>
+            @else
+                <table>
+                    <thead>
                     <tr>
-                        <td>{{ $missionLine->title }}</td>
-                        <td>{{ $missionLine->quantity }}</td>
-                        <td>{{ $missionLine->unit_price }} €</td>
-                        <td>{{ number_format(($missionLine->total_ttc / 1.2) ,0) }} €</td>
-                        <td class="text-right">
-                            <a href="{{ route('missionLines.edit', $missionLine) }}" title="Modifier la ligne de mission"
-                               class="button blue">Modifier</a>
-                        </td>
-                        <td class="text-right">
-                            <form action="{{ route('missionLines.destroy', $missionLine) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <input type="submit" id="destroy" name="destroy" value="Supprimer"
-                                       class="button danger">
-                            </form>
-                        </td>
+                        <th>Titre</th>
+                        <th>Quantité</th>
+                        <th>Prix unitaire</th>
+                        <th>Total TTC</th>
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    @foreach($mission->missionLines as $missionLine)
+                        <tr>
+                            <td>{{ $missionLine->title }}</td>
+                            <td>{{ $missionLine->quantity }}</td>
+                            <td>{{ $missionLine->unit_price }} €</td>
+                            <td>{{ $missionLine->total_ttc }} €</td>
+                            <td class="text-right">
+                                <a href="{{ route('missionLines.edit', $missionLine) }}"
+                                   title="Modifier la ligne de mission"
+                                   class="button blue">Modifier</a>
+                            </td>
+                            <td class="text-right">
+                                <form action="{{ route('missionLines.destroy', $missionLine) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" id="destroy" name="destroy" value="Supprimer"
+                                           class="button danger">
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            @endif
         </div>
     </div>
 @endsection

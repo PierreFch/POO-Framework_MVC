@@ -1,4 +1,5 @@
 // Variables
+$black: #383D41;
 $primary: #010409;
 $submit: #724e91;
 $lightSubmit: #7F5F9B;
@@ -6,6 +7,7 @@ $information: #e54f6d;
 $shadow: #EBEBEB;
 $bgLight: #F5F5F5;
 $bgLightGrey: #EBEBEB;
+$grey: #E2E3E5;
 $blue: #007bff;
 
 $successBg: #d4edda;
@@ -66,6 +68,19 @@ $font: 'Nunito', sans-serif;
 
 .invalid, .error{
     @include alert($errorBg, $error);
+}
+
+.empty{
+    color: $black;
+    background-color: $grey;
+    padding: 1rem;
+    margin: 1rem 2rem;
+    div.add{
+        margin: .5rem 0 !important;
+    }
+    div.picture{
+        margin-top: .5rem;
+    }
 }
 
 // Elements communs
