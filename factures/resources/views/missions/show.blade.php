@@ -14,13 +14,25 @@
                 <a href="{{ route('missions.edit', $mission) }}" title="Modifier la mission"
                    class="button blue">Modifier</a>
             </div>
-            <div class="delete">
-                <form action="{{ route('missions.destroy', $mission) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit" id="destroy" name="destroy" value="Supprimer"
-                           class="button danger">
-                </form>
+
+            <div class="destroy">
+                <button title="Supprimer la mission" class="button danger" id="delete">Supprimer</button>
+            </div>
+
+            <div id="modalBox">
+                <div class="content text-center">
+                    <span class="close">&times;</span>
+                    <h2>Etes-vous certains de vouloir supprimer cette mission ?</h2>
+                    <div class="choice">
+                        <span id="no">Non</span>
+                        <form action="{{ route('missions.destroy', $mission) }}" method="POST" id="yes">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" id="destroy" name="destroy" value="Oui"
+                                   class="button danger">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -74,5 +86,7 @@
                 </table>
             @endif
         </div>
+
+        <a href="{{ route('quote.show', $mission) }}" title="Générer un devis">Générer un devis</a>
     </div>
 @endsection

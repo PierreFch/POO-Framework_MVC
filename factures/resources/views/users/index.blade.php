@@ -32,14 +32,27 @@
                 <a href="{{ route('users.edit', $user) }}" title="Modifier mon compte" class="button">Modifier mon
                     compte</a>
             </div>
-            <div class="delete">
-                <form action="{{ route('users.destroy', $user) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit" id="destroy" name="destroy" value="Supprimer mon compte"
-                           class="button danger">
-                </form>
+            <div class="destroy">
+                <button title="Supprimer mon compte" class="button danger" id="delete">Supprimer mon
+                compte</button>
             </div>
+
+            <div id="modalBox">
+                <div class="content text-center">
+                    <span class="close">&times;</span>
+                    <h2>Etes-vous certains de vouloir supprimer votre compte ?</h2>
+                    <div class="choice">
+                        <span id="no">Non</span>
+                        <form action="{{ route('users.destroy', $user) }}" method="POST" id="yes">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" id="destroy" name="destroy" value="Oui"
+                                   class="button danger">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     </div>

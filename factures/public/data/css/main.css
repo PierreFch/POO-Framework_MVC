@@ -10,6 +10,14 @@
   text-align: right;
 }
 
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
 .little {
   display: block;
   font-weight: 400;
@@ -29,16 +37,16 @@
   display: inline-block;
   background-color: #d4edda;
   color: #155724;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.25rem;
+  padding: .75rem 1.25rem;
+  border-radius: .25rem;
 }
 
 .invalid, .error {
   display: inline-block;
   background-color: #F8D7DA;
   color: #721C24;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.25rem;
+  padding: .75rem 1.25rem;
+  border-radius: .25rem;
 }
 
 .empty {
@@ -47,11 +55,13 @@
   padding: 1rem;
   margin: 1rem 2rem;
 }
+
 .empty div.add {
-  margin: 0.5rem 0 !important;
+  margin: .5rem 0 !important;
 }
+
 .empty div.picture {
-  margin-top: 0.5rem;
+  margin-top: .5rem;
 }
 
 body {
@@ -60,6 +70,7 @@ body {
   font-size: 1rem;
   background-color: #F5F5F5;
 }
+
 body * {
   box-sizing: border-box;
 }
@@ -77,7 +88,7 @@ div.left, div.right {
   vertical-align: top;
 }
 
-a, img, input[type=submit] {
+a, img, input[type="submit"] {
   transition-duration: 200ms;
 }
 
@@ -86,11 +97,17 @@ a {
   display: inline-block;
   vertical-align: middle;
 }
+
 a.login {
+  border: 0;
   background-color: #010409;
   color: #FFF;
   padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: .5rem 0;
 }
+
 a.back {
   color: #724e91;
   font-weight: 600;
@@ -98,43 +115,56 @@ a.back {
   align-items: center;
   margin-bottom: 1rem;
 }
+
 a.back img {
   max-width: 30px;
   margin-right: 10px;
 }
+
 a.back:hover img {
   transform: translateX(-5px);
 }
 
 .button {
+  border: 0;
   background-color: #724e91;
   color: #FFF;
   padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: .5rem 0;
 }
+
 .button:hover {
   background-color: #7F5F9B;
 }
+
 .button.pink {
   background-color: #e54f6d;
 }
+
 .button.danger {
   background-color: #CC0000;
 }
+
 .button.blue {
   background-color: #007bff;
 }
 
 form > div, form div.top > div, form div.bottom > div {
-  margin: 0.5rem 0;
+  margin: .5rem 0;
 }
+
 form:not(.account) > div.text, form:not(.account) > div.email, form:not(.account) > div.phone, form.account div.top > div.text, form.account div.top > div.email, form.account div.top > div.phone {
   width: calc(50% - 20px);
   display: inline-block;
 }
+
 form:not(.account) > div:nth-of-type(2n), form.account div.top > div:nth-of-type(2n) {
   float: right;
-  margin-left: 0.5rem;
+  margin-left: .5rem;
 }
+
 form input, form textarea {
   font-family: "Nunito", sans-serif;
   font-size: 1rem;
@@ -142,22 +172,26 @@ form input, form textarea {
   width: 100%;
   margin: 5px 0;
 }
-form a.submit, form input[type=submit] {
+
+form a.submit, form input[type="submit"] {
   border: 0;
   background-color: #724e91;
   color: #FFF;
   padding: 10px 20px;
   cursor: pointer;
 }
-form a.submit:hover, form input[type=submit]:hover {
-  opacity: 0.9;
+
+form a.submit:hover, form input[type="submit"]:hover {
+  opacity: .9;
 }
+
 form div.bottom {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
 form div.invalid {
   width: 100%;
 }
@@ -168,22 +202,27 @@ div.divPage.show div.bottom {
   align-items: center;
   flex-wrap: wrap;
 }
+
 div.divPage.show div.bottom a {
   margin-right: 1rem;
 }
+
 div.divPage.show div.list {
   margin-top: 2rem;
   padding: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 div.divPage.show div.list h2, div.divPage.show div.list table {
   margin: 0;
 }
+
 div.divPage.show div.list div.add {
   margin: 1rem 0;
 }
+
 div.divPage.show div.data > div, div.divPage.show div.data div.left > div, div.divPage.show div.data div.right > div {
-  margin: 0.5rem 0;
+  margin: .5rem 0;
 }
 
 table {
@@ -192,24 +231,31 @@ table {
   border-collapse: collapse;
   margin: 2rem 0;
 }
+
 table th {
   text-align: left;
 }
+
 table th, table td {
-  padding: 1rem 0.5rem;
+  padding: 1rem .5rem;
 }
+
 table tbody tr:nth-of-type(2n+1) {
   background-color: #EBEBEB;
 }
+
 table tbody td:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 table tbody td input {
   width: auto;
 }
+
 table tr {
   position: relative;
 }
+
 table tr .showmore {
   position: absolute;
   width: 100%;
@@ -218,10 +264,12 @@ table tr .showmore {
   left: 0;
   padding: 0;
 }
+
 table tr .showmore a {
   width: 100%;
   height: 100%;
 }
+
 table tr .delete, table tr .edit {
   position: relative;
   z-index: 1;
@@ -233,12 +281,14 @@ header {
   background-color: #F5F5F5;
   margin-left: 20%;
 }
+
 header .banner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
 header .banner .logout {
   margin-left: auto;
 }
@@ -246,9 +296,11 @@ header .banner .logout {
 div.Page {
   height: 100vh;
 }
+
 div.Page > div.data form input {
   width: auto;
 }
+
 div.Page > div.left {
   width: 20%;
   height: 100%;
@@ -260,25 +312,31 @@ div.Page > div.left {
   color: #FFF;
   background-color: #724e91;
 }
+
 div.Page > div.left nav {
   height: 100%;
   padding: 1rem 0;
 }
+
 div.Page > div.left nav ul {
   padding-left: 0;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
 }
+
 div.Page > div.left nav ul div.top, div.Page > div.left nav ul div.bottom {
   width: 100%;
 }
+
 div.Page > div.left nav ul div.bottom {
   align-self: end;
 }
+
 div.Page > div.left nav ul li {
   list-style: none;
 }
+
 div.Page > div.left nav ul li a {
   padding: 1.25rem 1.5rem;
   color: #FFF;
@@ -286,17 +344,21 @@ div.Page > div.left nav ul li a {
   display: inline-flex;
   align-items: center;
 }
+
 div.Page > div.left nav ul li a:hover {
   background-color: #7F5F9B;
 }
+
 div.Page > div.left nav ul li a img {
   margin-right: 10px;
   width: 25px;
 }
+
 div.Page > div.right {
   margin-left: 20%;
   width: 80%;
 }
+
 div.Page > div.right section {
   margin: 2rem 0;
 }
@@ -308,12 +370,42 @@ div.divWelcome {
   justify-content: center;
 }
 
+div.divClients.show h1 {
+  display: inline-block;
+  margin-right: .5rem;
+}
+
+div.divClients.show #options {
+  height: 20px;
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+div.divClients.show #options.active {
+  transform: rotate(90deg);
+}
+
+div.divClients.show div#actions {
+  display: none;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+div.divClients.show div#actions .edit {
+  margin-right: 1rem;
+}
+
+div.divClients.show div#actions.active {
+  display: flex;
+}
+
 div.divDashboard {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 70vh;
 }
+
 div.divDashboard h1 {
   text-align: center;
   font-size: 3rem;
@@ -326,39 +418,101 @@ div.divAccount div.columns {
   grid-column-gap: 1rem;
   grid-row-gap: 0px;
 }
+
 div.divAccount div.columns div.left {
-  grid-area: 1/1/2/2;
+  grid-area: 1 / 1 / 2 / 2;
 }
+
 div.divAccount div.columns div.middle {
-  grid-area: 1/2/2/3;
+  grid-area: 1 / 2 / 2 / 3;
 }
+
 div.divAccount div.columns div.right {
-  grid-area: 1/3/2/4;
+  grid-area: 1 / 3 / 2 / 4;
 }
+
 div.divAccount div.columns > div {
   width: 100%;
-  padding: 0 0.5rem;
+  padding: 0 .5rem;
 }
+
 div.divAccount div.columns > div > div {
-  padding: 0.4rem 0;
+  padding: .40rem 0;
 }
+
 div.divAccount div.bottom {
   margin-top: 2rem;
 }
+
 div.divAccount div.bottom form input {
   width: auto;
-  margin: 0.5rem 0;
+  margin: .5rem 0;
 }
 
 div.divMissions form div.text, div.divMissions form div.email, div.divMissions form div.phone {
   width: 100%;
 }
+
 div.divMissions form div:nth-of-type(2n) {
   margin-left: 0;
   float: none;
 }
+
 div.divMissions.show td:hover {
   background-color: transparent;
 }
 
+#modalBox {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#modalBox .content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+#modalBox .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#modalBox .close:hover, #modalBox .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modalBox div.choice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#modalBox div.choice #no {
+  border: 0;
+  background-color: #007bff;
+  color: #FFF;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: .5rem 0;
+}
+
+#modalBox div.choice #yes {
+  margin-left: 1rem;
+}
 /*# sourceMappingURL=main.css.map */

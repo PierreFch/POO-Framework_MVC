@@ -16,7 +16,7 @@ class MissionController extends Controller
         return view('missions.create', ['client' => $client]);
     }
 
-    public function store(MissionRequest $request, Client $client)
+    public function store(MissionRequest $request, Client $client, Mission $mission)
     {
         $input = $request->safe()->only([
             'title',
@@ -24,12 +24,12 @@ class MissionController extends Controller
             'advance'
         ]);
         $mission = $client->missions()->create($input);
-        return redirect(route('clients.show', $client))->with('success', "Nouvelle mission ajoutée !");
+        return redirect(route('missions.show', $mission))->with('success', "Nouvelle mission ajoutée !");
     }
 
-    public function show(Client $client, Mission $mission)
+    public function show(Mission $mission)
     {
-        return view('missions.show', ['client' => $client], ['mission' => $mission]);
+        return view('missions.show', ['mission' => $mission]);
     }
 
     public function edit(Mission $mission)
@@ -45,12 +45,24 @@ class MissionController extends Controller
             'advance',
         ]);
         $mission->update($input);
-        return redirect(route('missions.show', $mission))->with('success', "Mission mise à jour !");
+        return redirect(route('missions.show', ['mission' => $mission]))->with('success', "Mission mise à jour !");
     }
 
-    public function destroy(Mission $mission)
+    public function destroy(Mission $mission, Client $client)
     {
-        $mission->delete();
-        return redirect(route('missions.show'))->with('success', "La mission à été supprimé !");
+        if (Auth::user() == $mission->client->user)
+        {
+            $mission->delete();
+            foreach ($mission->missionLines as $missionLine) {
+                $missionLine->delete();
+            }
+            return redirect(route('clients.show', $client))->with('success', "La mission à été supprimé !");
+        }
+        return redirect(route('clients.show', $client))->with('error', "La mission ne peut pas être supprimé !");
+    }
+
+    public function showQuote(Mission $mission)
+    {
+        return view('quote.show', ['mission' => $mission]);
     }
 }

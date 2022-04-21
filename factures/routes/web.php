@@ -58,3 +58,6 @@ Route::post('/missions/{mission}/mission_lines/create', [MissionLinesController:
 Route::get('/mission-lines/{missionLine}/edit', [MissionLinesController::class, 'edit'])->name('missionLines.edit');
 Route::put('/mission-lines/{missionLine}/edit', [MissionLinesController::class, 'update'])->name('missionLines.update');
 Route::delete('/mission-lines/{missionLine}', [MissionLinesController::class, 'destroy'])->name('missionLines.destroy');
+
+// QUOTE (devis)
+Route::get('/mission/{mission}/quote', [MissionController::class, 'showQuote'])->name('quote.show');
