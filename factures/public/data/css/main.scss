@@ -147,6 +147,18 @@ a {
     }
 }
 
+img{
+    max-width: 100%;
+    &#options, &.line-options{
+        height: 20px;
+        cursor: pointer;
+        transition-duration: 300ms;
+        &.active{
+            transform: rotate(90deg);
+        }
+    }
+}
+
 .button{
     @include button($submit);
     &:hover{
@@ -154,6 +166,11 @@ a {
     }
     &.pink{
         background-color: $information;
+        &-border{
+            background-color: transparent;
+            color: $information;
+            border: 1.5px solid $information;
+        }
     }
     &.danger{
         background-color: $danger;
@@ -210,6 +227,21 @@ form {
 // divPage
 div.divPage{
     &.show{
+        h1{
+            display: inline-block;
+            margin-right: .5rem;
+        }
+        div#actions{
+            display: none;
+            align-items: center;
+            flex-wrap: wrap;
+            .edit{
+                margin-right: 1rem;
+            }
+            &.active{
+                display: flex;
+            }
+        }
         div.bottom{
             margin: 1rem 0;
             display: flex;
@@ -367,35 +399,6 @@ div.divWelcome {
     justify-content: center;
 }
 
-// Client
-div.divClients{
-    &.show{
-        h1{
-            display: inline-block;
-            margin-right: .5rem;
-        }
-        #options{
-            height: 20px;
-            cursor: pointer;
-            transition-duration: 300ms;
-            &.active{
-                transform: rotate(90deg);
-            }
-        }
-        div#actions{
-            display: none;
-            align-items: center;
-            flex-wrap: wrap;
-            .edit{
-                margin-right: 1rem;
-            }
-            &.active{
-                display: flex;
-            }
-        }
-    }
-}
-
 // Dashboard
 div.divDashboard{
     display: flex;
@@ -451,7 +454,6 @@ div.divMissions{
         }
     }
 }
-
 
 // Modal Box
 #modalBox {

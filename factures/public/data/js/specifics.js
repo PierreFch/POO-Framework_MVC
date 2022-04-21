@@ -22,7 +22,7 @@ window.onclick = function(event) {
     }
 } 
 
-// Options
+// Options (show)
 var options = document.getElementById("options");
 var actions = document.getElementById("actions");
 

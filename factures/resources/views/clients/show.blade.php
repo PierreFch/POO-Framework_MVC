@@ -86,7 +86,7 @@
             @endif
         </div>
         <div class="bottom">
-            <a href="{{ route('clients.index') }}" title="Retourner à la liste des clients" class="button">Retour</a>
+            <a href="{{ route('clients.index') }}" title="Retourner à la liste des clients." class="button">Retour</a>
         </div>
     </div>
 @endsection

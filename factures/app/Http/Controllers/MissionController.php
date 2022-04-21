@@ -8,6 +8,7 @@ use App\Models\Mission;
 use App\Models\MissionLine;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Dompdf\Dompdf;
 
 class MissionController extends Controller
 {
@@ -27,9 +28,9 @@ class MissionController extends Controller
         return redirect(route('missions.show', $mission))->with('success', "Nouvelle mission ajoutée !");
     }
 
-    public function show(Mission $mission)
+    public function show(Mission $mission, Client $client)
     {
-        return view('missions.show', ['mission' => $mission]);
+        return view('missions.show', ['mission' => $mission], ['client' => $client]);
     }
 
     public function edit(Mission $mission)
@@ -63,6 +64,13 @@ class MissionController extends Controller
 
     public function showQuote(Mission $mission)
     {
-        return view('quote.show', ['mission' => $mission]);
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml(view('quote.show', ['mission' => $mission]));
+
+        $dompdf->setPaper('A4');
+
+        $dompdf->render();
+
+        $dompdf->stream();
     }
 }

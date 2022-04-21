@@ -1,6 +1,3 @@
-@extends('layout')
-
-@section('content')
     <div class="divPage divQuote show">
         <div class="quote-data">
             <div class="top">
@@ -23,11 +20,11 @@
                         <tbody>
                             <tr>
                                 <td class="reference bold">Devis n°</td>
-                                <td>{{ $mission->client->reference }}-{{ $mission->reference }}-DE</td>
+                                <td class="text-right">{{ $mission->client->reference }}-{{ $mission->reference }}-DE</td>
                             </tr>
                             <tr>
                                 <td class="date bold">Date</td>
-                                <td>
+                                <td class="text-right">
                                     @php
                                     $date = new DateTime();
                                     echo $date->format('d/m/Y');
@@ -40,7 +37,7 @@
             </div>
             <div class="bottom">
                 <div class="left">
-                    <p class="mission-title bold">Mission : {{ $mission->title }}</p>
+                    <p class="mission-title"><span class="bold">Mission :</span> {{ $mission->title }}</p>
                 </div>
                 <div class="right">
                     <p class="bold">A destination de :</p>
@@ -57,7 +54,7 @@
                 @endphp
                 <thead>
                     <tr>
-                        <th>Désignation</th>
+                        <th class="text-left">Désignation</th>
                         <th class="text-center">Quantité</th>
                         <th class="text-center">Prix unitaire<span class="little">TTC</span></th>
                         <th class="text-center">Total<span class="little">TTC</span></th>
@@ -77,13 +74,12 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="text-right">
-                <p class="bold">Total TTC {{ $totalTTC }} €</p>
+            <div class="text-right total">
+                <p class="bold"><span>Total TTC</span> {{ $totalTTC }} €</p>
             </div>
         </div>
         <div class="payment">
-            <p class="modalite bold">Modalité de paiement :</p>
-            <p>{{ $mission->advance }}% d'accompte à la signature, solde à la livraison.</p>
+            <p class="modalite"><span class="bold">Modalité de paiement :</span> {{ $mission->advance }}% d'accompte à la signature, solde à la livraison.</p>
             <div class="bank">
                 <div class="left">
                     <table>
@@ -113,20 +109,20 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="bottom">
-                        <p class="text-italic">
-                            En cas de retard de paiement, seront exigibles, conformément à l'article L 441-6 du 
-                            code du commerce, une indemnité calculée sur la base de trois fois le taux de 
-                            l'intéret légal en vigueur ainsi qu'une indemnité forfaitaire pour frais de recouvrement 
-                            de 40 euros.
-                        </p>
-                    </div>
                 </div>
                 <div class="right">
                     <div class="signature">
                         <p class="bold">Date et signature, précédées de la mention : "Bon pour accord".</p>
                     </div>
                 </div>
+            </div>
+            <div class="bottom">
+                <p class="text-italic">
+                    En cas de retard de paiement, seront exigibles, conformément à l'article L 441-6 du 
+                    code du commerce, une indemnité calculée sur la base de trois fois le taux de 
+                    l'intéret légal en vigueur ainsi qu'une indemnité forfaitaire pour frais de recouvrement 
+                    de 40 euros.
+                </p>
             </div>
         </div>
         <div class="footer text-center">
@@ -139,4 +135,124 @@
             </p>
         </div>
     </div>
-@endsection
+
+    <style>
+        div.divQuote{
+            font-size: 13px;
+            padding-bottom: 100px;
+            position: relative;
+            font-family: Arial, Helvetica, sans-serif
+        }
+
+        div.left, div.right {
+            width: 48%;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .bold{
+            font-weight: bold;
+        }
+
+        .text-center{
+            text-align: center;
+        }
+
+        .text-right{
+            text-align: right;
+        }
+
+        .text-uppercase{
+            text-transform: uppercase;
+        }
+
+        .text-italic{
+            font-style: italic;
+        }
+        h1{
+            margin: 0;
+        }
+        a{
+            color: #000;
+        }
+        p{
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+        table{
+            width: 100%;
+            border-spacing:0;
+            border-collapse: collapse;
+        }
+        table thead{
+            background-color: #383D41;
+            color: #FFF;
+            font-size: 15px;    
+        }
+        .little{color: #FFF; font-size: 10px; display: block}
+        th, td{
+             padding: 5px 10px;
+        }
+        th{
+            font-weight: 400;
+            font-size: 12px;
+        }
+        div.quote-data div.top{
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }          
+        div.quote-data div.top .right{
+            width: 270px;        
+            float: right;
+        }
+        div.quote-data div.top table{
+            border: 2px solid #E2E3E5;
+        }
+        div.quote-data div.bottom{
+            margin: 20px 0;
+        }
+        div.main{
+            margin: 20px 0;   
+        }
+        div.main table td{
+            padding: 7px 10px;
+        }
+        div.main .total{
+            margin-top: 5px;
+            padding-top: 5px;
+            border-top: 2px solid #383D41;
+        }
+        div.main .total span{
+            margin-right: 1rem;
+        }
+        div.payment .bottom{
+            font-size: 10px
+        }
+        div.bank{
+            margin: 40px 0;
+            min-height: 150px;
+        }
+        div.bank .left{
+            width: 50%;
+        }
+        div.bank .right{
+            border: 2px solid #E2E3E5;
+            padding: 10px;
+            height: 150px;
+            width: 40%;
+            float: right;
+        }
+        div.footer{
+            height: 100px;
+            font-size: 10px;
+            border-top: 2px solid #E2E3E5;
+            padding-top: 10px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>

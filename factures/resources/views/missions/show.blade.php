@@ -3,13 +3,8 @@
 @section('content')
     <div class="divPage divMissions show">
         <h1>{{ $mission->title }}</h1>
-
-        <div class="data">
-            <div><span class="bold">Titre :</span> {{ $mission->title }}</div>
-            <div><span class="bold">Référence :</span> {{ $mission->reference }}</div>
-            <div><span class="bold">Acompte :</span> {{ $mission->advance }} %</div>
-        </div>
-        <div class="bottom">
+        <img src="{{ asset('data/images/options.svg') }}" alt="options" title="Options de la mission." id="options"/>
+        <div id="actions">
             <div class="edit">
                 <a href="{{ route('missions.edit', $mission) }}" title="Modifier la mission"
                    class="button blue">Modifier</a>
@@ -35,6 +30,14 @@
                 </div>
             </div>
         </div>
+
+        <div class="data">
+            <div><span class="bold">Titre :</span> {{ $mission->title }}</div>
+            <div><span class="bold">Référence :</span> {{ $mission->reference }}</div>
+            <div><span class="bold">Acompte :</span> {{ $mission->advance }} %</div>
+        </div>
+
+        <a href="{{ route('quote.show', $mission) }}" title="Générer un devis" class="button pink-border">Générer un devis</a>
 
         <div class="list">
             <h2>Liste des lignes de mission</h2>
@@ -86,7 +89,5 @@
                 </table>
             @endif
         </div>
-
-        <a href="{{ route('quote.show', $mission) }}" title="Générer un devis">Générer un devis</a>
     </div>
 @endsection
